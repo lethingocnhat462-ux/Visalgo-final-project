@@ -1,0 +1,51 @@
+.home {
+  padding: 40px;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+/* CTA */
+.cta-btn {
+  padding: 14px 28px;
+  background-color: var(--accent-color);
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* Intro */
+.intro {
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.feature-card {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+}
