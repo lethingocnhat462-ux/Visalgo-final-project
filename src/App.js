@@ -1,22 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import HomePage from "./pages/HomePage";
-import VisualizationPage from "./pages/VisualizationPage";
-import AboutPage from "./pages/AboutPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import React from 'react';
+import './styles/index.css'; // Kết nối tới file CSS bạn đã sửa
 
 function App() {
   return (
-    // Thêm basename chính xác với tên thư mục xuất hiện trên URL của bạn
-    <BrowserRouter basename="/visalgo-final-project">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/visualization/:algo" element={<VisualizationPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        {/* Route này sẽ chỉ hiện khi nhập sai sau cụm /visalgo-final-project */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div style={{ padding: '40px' }}>
+      <h1>VisAlgo</h1>
+      <p>Algorithm Sorting Visualizer</p>
+      
+      {/* ĐÂY MỚI LÀ NƠI ĐẶT NÚT BẤM */}
+      <div style={{ marginTop: '20px' }}>
+        <button className="btn btn-primary">Start</button>
+        <button className="btn btn-secondary" style={{ marginLeft: '10px' }}>Reset</button>
+      </div>
+    </div>
   );
 }
 
