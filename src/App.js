@@ -4,6 +4,7 @@ import './styles/index.css';
 import Header from './components/Header';
 
 import HomePage from './pages/HomePage';
+import VisualizationPage from "./pages/VisualizationPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/algorithms" element={<h1>Algorithms Page</h1>} />
             <Route path="/about" element={<h1>About Page</h1>} />
+            <Route path="/algorithms/:algo" element={<VisualizationPage />} />
           </Routes>
         </main>
       </div>
