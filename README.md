@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+# 📊 Vis Algo - Công cụ Trực quan hóa Thuật toán Sắp xếp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Vis Algo** là một Web App mã nguồn mở giúp trực quan hóa các thuật toán sắp xếp cơ bản thông qua biểu đồ cột sinh động. Dự án giúp sinh viên nắm bắt bản chất của thuật toán nhanh và sâu hơn thay vì chỉ đọc mã code.
 
-## Available Scripts
+## 🖼️ Giao diện Ứng dụng
+![Vis Algo Interface](link_anh_giao_dien_thực_tế.png)
+*Giao diện hiện tại hỗ trợ nhập mảng tùy chỉnh và hiển thị biểu đồ cột tương ứng.*
 
-In the project directory, you can run:
+## ✨ Tính năng nổi bật
+- **Nhập liệu linh hoạt**: Người dùng có thể tự nhập mảng dữ liệu cách nhau bằng dấu phẩy (ví dụ: `45, 20, 80...`).
+- **Khởi tạo thông minh**: Nút "Khởi tạo" giúp thiết lập trạng thái ban đầu của mảng dưới dạng biểu đồ.
+- **Trực quan hóa tức thì**: Chế độ "Bắt đầu chạy" để quan sát các thanh thay đổi độ cao và màu sắc theo logic thuật toán.
+- **Đa dạng thuật toán**: Hỗ trợ Bubble Sort, Insertion Sort và Merge Sort (truy cập qua menu Thuật toán).
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🛠️ Công nghệ sử dụng
+- **React.js**: Quản lý trạng thái và cập nhật giao diện.
+- **CSS Transitions**: Tạo hiệu ứng dịch chuyển mềm mại cho các thanh khi hoán đổi vị trí.
+- **VSCodium**: IDE mã nguồn mở dùng để phát triển dự án.

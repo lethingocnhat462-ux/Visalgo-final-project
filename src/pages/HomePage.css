@@ -2,53 +2,86 @@
 .home {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #22396b;
-}
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 80vh;
-  background: linear-gradient(135deg, #5778c5, #3b4f6f);
-  color: #222b34;
+  background-color: #ffffff;
+  min-height: 100vh; /* Đảm bảo nền phủ hết chiều cao màn hình */
+  margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 20px;
 }
+/* ===== HERO ===== */
+.hero {
+  /* 1. Chỉnh màu nền: Gradient từ xanh đậm sang đen tạo chiều sâu */
+  background: radial-gradient(circle at center, #7395cb 0%, #7395cb 100%);
+  /* 2. Tạo khoảng trống để chữ không bị bí */
+  padding: 120px 20px;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+
+  margin: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+/* 3. Làm nổi font chữ tiêu đề */
 
 .hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
+
+  color: #FFFFFF; /* Chữ bắt buộc phải màu trắng thuần */
+
+  font-weight: 800;
+
+  font-size: 4rem;
+
   margin-bottom: 20px;
+  letter-spacing: -0.5px;
+  
 }
+/* 4. Làm nổi chữ mô tả */
 
 .hero p {
+
+  color: #2f3d51; /* Màu xám xanh nhạt để dễ đọc nhưng không lấn át tiêu đề */
+
+  font-size: 1.2rem;
+
   max-width: 700px;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #111b3a;
-}
 
-/* ===== CTA BUTTON ===== */
+  line-height: 1.6;
+
+}
+/* Chỉnh nút bấm "Bắt đầu ngay" có hiệu ứng phát sáng */
+
 .cta-btn {
-  margin-top: 30px;
-  padding: 14px 36px;
-  background: linear-gradient(135deg, #284573, #4677df);
-  color: rgb(22, 22, 39);
-  border-radius: 999px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
-  transition: all 0.3s ease;
-}
 
+  background: #3b82f6;
+
+  color: rgb(209, 181, 181);
+
+  padding: 15px 40px;
+
+  border-radius: 50px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+  margin-top: 40px;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); /* Đổ bóng màu xanh */
+
+}
 .cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 35px rgba(37, 99, 235, 0.65);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+  background: #2563eb;
 }
-
 /* ===== INTRO ===== */
 .intro {
   max-width: 900px;
@@ -56,12 +89,10 @@
   text-align: center;
   padding: 0 20px;
 }
-
 .intro h2 {
   font-size: 2rem;
   margin-bottom: 16px;
 }
-
 .intro p {
   font-size: 1.05rem;
   line-height: 1.7;
@@ -81,16 +112,16 @@
 /* ===== FEATURE CARD ===== */
 .feature-card {
   background: linear-gradient(135deg, #5e84c2, #516dad);
-  color: #1f252c;
+  color: #30435a;
   padding: 36px 28px;
   border-radius: 22px;
   text-align: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 35px rgba(107, 140, 180, 0.25);
   transition: all 0.35s ease;
 }
 
 .feature-card svg {
-  color: #222a33;
+  color: #2e3c4c;
   margin-bottom: 16px;
 }
 
@@ -102,7 +133,7 @@
 .feature-card p {
   font-size: 1rem;
   line-height: 1.6;
-  color: #1f2126;
+  color: #2f364a;
 }
 
 /* Hover hiệu ứng */

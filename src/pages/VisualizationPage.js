@@ -1,154 +1,146 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 import Bar from "../components/Bar";
-import { bubbleSortSteps } from "../algorithms/bubbleSort";
-import { insertionSortSteps } from "../algorithms/insertionSort";
-import { mergeSortSteps } from "../algorithms/mergeSort";
+import {  bubbleSortSteps } from '../algorithms/bubbleSort';
+import {  insertionSortSteps } from '../algorithms/insertionSort';
+import { mergeSortSteps } from '../algorithms/mergeSort';
 
 export default function VisualizationPage() {
-  const [array, setArray] = useState([5, 3, 8, 4, 2]);
-  const [inputArray, setInputArray] = useState("5,3,8,4,2");
+  const { algo } = useParams(); // Lấy tên thuật toán từ URL (:algo)
+  
+  const [inputArray, setInputArray] = useState("45, 20, 80, 50, 10, 30, 90, 60");
+  const [array, setArray] = useState([45, 20, 80, 50, 10, 30, 90, 60]);
   const [steps, setSteps] = useState([]);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(-1);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [algorithm, setAlgorithm] = useState("bubble");
-  const [speed, setSpeed] = useState(500);
+  const [speed, setSpeed] = useState(400);
 
   const intervalRef = useRef(null);
 
-  /* ===== BẮT ĐẦU THUẬT TOÁN ===== */
-  const start = () => {
-    const arr = inputArray.split(",").map(Number);
+  // Tự động khởi tạo lại khi người dùng đổi thuật toán qua menu điều hướng
+  useEffect(() => {
+    handleStart();
+    return () => clearInterval(intervalRef.current);
+  }, [algo]);
+
+  const handleStart = () => {
+    const arr = inputArray.split(",").map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+    if (arr.length === 0) return;
+
     setArray(arr);
+    setIsPlaying(false);
+    clearInterval(intervalRef.current);
 
     let result = [];
-    if (algorithm === "bubble") result = bubbleSortSteps(arr);
-    if (algorithm === "insertion") result = insertionSortSteps(arr);
-    if (algorithm === "merge") result = mergeSortSteps(arr);
+    // Quyết định logic dựa trên tham số URL
+    if (algo === "bubble") result = bubbleSortSteps([...arr]);
+    else if (algo === "insertion") result = insertionSortSteps([...arr]);
+    else if (algo === "merge") result = mergeSortSteps([...arr]);
 
     setSteps(result);
-    setCurrentStep(0);
-    pause();
+    setCurrentStep(-1);
   };
 
-  /* ===== BƯỚC TIẾP THEO ===== */
-  const nextStep = () => {
-    if (currentStep < steps.length) {
-      setArray(steps[currentStep].array);
-      setCurrentStep(currentStep + 1);
+  const nextStep = useCallback(() => {
+    setCurrentStep((prev) => {
+      if (prev < steps.length - 1) {
+        const nextIdx = prev + 1;
+        setArray(steps[nextIdx].array);
+        return nextIdx;
+      }
+      setIsPlaying(false);
+      return prev;
+    });
+  }, [steps]);
+
+  useEffect(() => {
+    if (isPlaying) {
+      intervalRef.current = setInterval(nextStep, speed);
+    } else {
+      clearInterval(intervalRef.current);
     }
-  };
+    return () => clearInterval(intervalRef.current);
+  }, [isPlaying, nextStep, speed]);
 
-  /* ===== PLAY ===== */
-  const play = () => {
-    if (isPlaying || steps.length === 0) return;
-    setIsPlaying(true);
-
-    intervalRef.current = setInterval(() => {
-      setCurrentStep((prev) => {
-        if (prev >= steps.length - 1) {
-          pause();
-          return prev;
-        }
-        setArray(steps[prev].array);
-        return prev + 1;
-      });
-    }, speed);
-  };
-
-  /* ===== PAUSE ===== */
-  const pause = () => {
-    clearInterval(intervalRef.current);
-    setIsPlaying(false);
-  };
-
-  /* ===== STEP HIỆN TẠI ===== */
-  const step = steps[currentStep];
+  const currentData = currentStep >= 0 ? steps[currentStep] : {};
 
   return (
-    <div style={{ textAlign: "center", padding: "20px" }}>
-      <h1>Vis Algo – Sorting Visualizer</h1>
+    <div style={styles.container}>
+      <h1 style={styles.title}>Thuật toán: {algo?.toUpperCase()}</h1>
 
-      {/* ===== INPUT + CHỌN THUẬT TOÁN ===== */}
-      <div style={{ marginBottom: 20 }}>
-        <input
-          type="text"
-          value={inputArray}
-          onChange={(e) => setInputArray(e.target.value)}
-          style={{ padding: 6, width: 220 }}
-        />
-
-        <select
-          value={algorithm}
-          onChange={(e) => setAlgorithm(e.target.value)}
-          style={{ marginLeft: 10, padding: 6 }}
+      {/* Toolbar với style hàng ngang bạn đã cung cấp */}
+      <div style={styles.toolbar}>
+        <div style={styles.inputGroup}>
+          <label style={{fontWeight: 'bold'}}>Mảng:</label>
+          <input
+            value={inputArray}
+            onChange={(e) => setInputArray(e.target.value)}
+            style={styles.input}
+          />
+        </div>
+        <button onClick={handleStart} style={styles.primaryBtn}>Khởi tạo</button>
+        <button 
+          onClick={() => setIsPlaying(!isPlaying)} 
+          style={{...styles.playBtn, backgroundColor: isPlaying ? "#e74c3c" : "#2ecc71"}}
         >
-          <option value="bubble">Bubble Sort</option>
-          <option value="insertion">Insertion Sort</option>
-          <option value="merge">Merge Sort</option>
-        </select>
-
-        <button onClick={start} style={{ marginLeft: 10 }}>
-          Start
+          {isPlaying ? "Tạm dừng" : "Bắt đầu chạy"}
         </button>
       </div>
 
-      {/* ===== KHU VỰC BAR ===== */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-end",
-          height: 300,
-          gap: 12,
-          marginBottom: 20,
-        }}
-      >
-        {array.map((value, index) => {
-          let status = "default";
+      
 
-          if (step?.compare?.includes(index)) status = "comparing";
-          if (step?.swap?.includes(index)) status = "swapping";
-          if (step?.sorted?.includes(index)) status = "sorted";
+      <div style={styles.visualizerArea}>
+  {array.map((value, index) => {
+    let status = "default";
+    
+    // 1. Kiểm tra xem index hiện tại có nằm trong danh sách indices đang xử lý không
+    const isActive = currentData.indices?.includes(index);
 
-          return (
-            <Bar
-              key={index}
-              value={value * 25}
-              status={status}
-            />
-          );
-        })}
+    // 2. Nếu có, lấy đúng status ('comparing', 'swapping', 'sorted') từ dữ liệu thuật toán
+    if (isActive) {
+      status = currentData.status; 
+    }
+
+    return (
+      <Bar
+        key={index}
+        value={value}
+        status={status} // Truyền 'comparing', 'swapping' hoặc 'sorted' vào Bar.js
+      />
+    );
+  })}
+</div>
+
+      <div style={styles.descriptionBox}>
+        <strong>Bước {currentStep + 1}:</strong> {currentData.description || "Nhấn 'Bắt đầu' để xem mô phỏng."}
       </div>
-
-      {/* ===== CONTROL ===== */}
-      <div>
-        <button onClick={nextStep}>Next Step</button>
-        <button onClick={play} style={{ marginLeft: 10 }}>
-          ▶ Play
-        </button>
-        <button onClick={pause} style={{ marginLeft: 10 }}>
-          ⏸ Pause
-        </button>
-      </div>
-
-      {/* ===== SPEED ===== */}
-      <div style={{ marginTop: 20 }}>
-        <label>Tốc độ: {speed} ms</label>
-        <br />
-        <input
-          type="range"
-          min="100"
-          max="1000"
-          step="100"
-          value={speed}
-          onChange={(e) => setSpeed(Number(e.target.value))}
-        />
-      </div>
-
-      {/* ===== MÔ TẢ ===== */}
-      <p style={{ marginTop: 20, minHeight: 24 }}>
-        {step?.description || "Nhập mảng và nhấn Start để bắt đầu."}
-      </p>
     </div>
   );
 }
+
+const styles = {
+  container: { padding: "40px", textAlign: "center", fontFamily: "Arial, sans-serif" },
+  title: { color: "#15191dff", marginBottom: "30px" },
+  toolbar: { 
+    display: "flex", 
+    justifyContent: "center", 
+    alignItems: "center", 
+    gap: "25px", 
+    marginBottom: "40px", 
+    flexWrap: "nowrap" 
+  },
+  inputGroup: { 
+    display: "flex", 
+    flexDirection: "row", 
+    alignItems: "center", 
+    gap: "10px" 
+  },
+  input: { padding: "10px", width: "250px", borderRadius: "5px", border: "1px solid #ddd" },
+  primaryBtn: { padding: "10px 20px", background: "#3498db", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" },
+  playBtn: { padding: "10px 25px", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer", fontWeight: "bold" },
+  visualizerArea: { 
+    display: "flex", justifyContent: "center", alignItems: "flex-end", 
+    height: "350px", gap: "8px", background: "#f9f9f9", padding: "20px", borderRadius: "10px", border: "1px solid #eee" 
+  },
+  descriptionBox: { marginTop: "30px", padding: "15px", backgroundColor: "#ecf0f1", borderRadius: "8px", display: "inline-block" }
+};

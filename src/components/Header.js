@@ -1,31 +1,34 @@
-import { Link } from "react-router-dom";
-import { FaHome, FaInfoCircle, FaChartBar } from "react-icons/fa";
-import "./Header.css";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './Header.css';
+// Dòng này sẽ lấy file ảnh bạn vừa bỏ vào thư mục components
+import logoImg from './logo.png'; 
 
-function Header() {
+const Header = () => {
   return (
-    <header className="header">
-      {/* Logo / Tên App */}
-      <div className="logo">
-        <Link to="/">Vis Algo</Link>
+    <header className="main-header">
+      {/* Nhóm logo và chữ vào một div để dễ căn chỉnh */}
+      <div className="logo-wrapper">
+        <img src={logoImg} alt="Logo" className="nav-logo" />
+        <span className="logo-text">Vis Algo</span>
       </div>
 
-      {/* Menu điều hướng */}
-      <nav className="nav">
-        <Link to="/">
-          <FaHome /> Trang chủ
-        </Link>
-
-        <Link to="/algorithms">
-          <FaChartBar /> Thuật toán
-        </Link>
-
-        <Link to="/about">
-          <FaInfoCircle /> Giới thiệu
-        </Link>
+      <nav className="nav-container">
+        <ul className="nav-links">
+          <li><NavLink to="/" end>Trang chủ</NavLink></li>
+          <li className="dropdown">
+            <span className="dropbtn">Thuật toán ▼</span>
+            <div className="dropdown-menu">
+              <NavLink to="/algorithms/bubble">Bubble Sort</NavLink>
+              <NavLink to="/algorithms/insertion">Insertion Sort</NavLink>
+              <NavLink to="/algorithms/merge">Merge Sort</NavLink>
+            </div>
+          </li>
+          <li><NavLink to="/about">Giới thiệu</NavLink></li>
+        </ul>
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

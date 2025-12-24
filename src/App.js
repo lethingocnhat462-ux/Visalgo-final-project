@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/index.css';
 import Header from './components/Header';
-
 import HomePage from './pages/HomePage';
+import AlgorithmsPage from './pages/AlgorithmsPage'; // 1. Import trang mới
 import VisualizationPage from "./pages/VisualizationPage";
 
 function App() {
@@ -11,13 +11,16 @@ function App() {
     <Router>
       <div className="app-container">
         <Header />
-
-        <main style={{ padding: '40px' }}>
+        <main style={{ padding: '20px' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/algorithms" element={<h1>Algorithms Page</h1>} />
-            <Route path="/about" element={<h1>About Page</h1>} />
+            
+            {/* 2. SỬA TẠI ĐÂY: Thay Navigate bằng AlgorithmsPage */}
+            <Route path="/algorithms" element={<AlgorithmsPage />} />
+            
             <Route path="/algorithms/:algo" element={<VisualizationPage />} />
+            
+            <Route path="/about" element={<div style={{padding: '40px'}}><h1>Giới thiệu dự án</h1></div>} />
           </Routes>
         </main>
       </div>
