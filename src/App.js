@@ -5,6 +5,7 @@ import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import AlgorithmsPage from './pages/AlgorithmsPage'; // 1. Import trang mới
 import VisualizationPage from "./pages/VisualizationPage";
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             
             <Route path="/algorithms/:algo" element={<VisualizationPage />} />
             
-            <Route path="/about" element={<div style={{padding: '40px'}}><h1>Giới thiệu dự án</h1></div>} />
+           <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
       </div>
