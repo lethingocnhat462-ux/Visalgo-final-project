@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Visalgo-final-project/static/css/main.1ce60cb6.css",
-    "main.js": "/Visalgo-final-project/static/js/main.973e2929.js",
+    "main.js": "/Visalgo-final-project/static/js/main.10cf074c.js",
     "static/js/453.2f83454f.chunk.js": "/Visalgo-final-project/static/js/453.2f83454f.chunk.js",
     "static/media/logo.png": "/Visalgo-final-project/static/media/logo.785a499f1efc59378321.png",
     "index.html": "/Visalgo-final-project/index.html",
     "main.1ce60cb6.css.map": "/Visalgo-final-project/static/css/main.1ce60cb6.css.map",
-    "main.973e2929.js.map": "/Visalgo-final-project/static/js/main.973e2929.js.map",
+    "main.10cf074c.js.map": "/Visalgo-final-project/static/js/main.10cf074c.js.map",
     "453.2f83454f.chunk.js.map": "/Visalgo-final-project/static/js/453.2f83454f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1ce60cb6.css",
-    "static/js/main.973e2929.js"
+    "static/js/main.10cf074c.js"
   ]
 }
