@@ -1,18 +1,14 @@
-# 📊 Vis Algo - Công cụ Trực quan hóa Thuật toán Sắp xếp
+# <img src="image.png" alt="Vis Algo Logo" width="50"> Vis Algo - Sorting Visualizer
 
-**Vis Algo** là một Web App mã nguồn mở giúp trực quan hóa các thuật toán sắp xếp cơ bản thông qua biểu đồ cột sinh động. Dự án giúp sinh viên nắm bắt bản chất của thuật toán nhanh và sâu hơn thay vì chỉ đọc mã code.
+**Vis Algo** is an open-source web app that visualizes sorting algorithms through dynamic bar charts. It helps students grasp algorithmic logic more intuitively than just reading code.
 
-## 🖼️ Giao diện Ứng dụng
-![Vis Algo Interface](link_anh_giao_dien_thực_tế.png)
-*Giao diện hiện tại hỗ trợ nhập mảng tùy chỉnh và hiển thị biểu đồ cột tương ứng.*
+## ✨ Key Features
+* **Flexible Input**: Users can enter custom data arrays separated by commas.
+* **Smart Initialization**: Quickly generates a bar chart from input data.
+* **Real-time Visualization**: Watch bars change height and color dynamically during execution.
+* **Algorithm Support**: Includes Bubble Sort, Insertion Sort, and Merge Sort.
 
-## ✨ Tính năng nổi bật
-- **Nhập liệu linh hoạt**: Người dùng có thể tự nhập mảng dữ liệu cách nhau bằng dấu phẩy (ví dụ: `45, 20, 80...`).
-- **Khởi tạo thông minh**: Nút "Khởi tạo" giúp thiết lập trạng thái ban đầu của mảng dưới dạng biểu đồ.
-- **Trực quan hóa tức thì**: Chế độ "Bắt đầu chạy" để quan sát các thanh thay đổi độ cao và màu sắc theo logic thuật toán.
-- **Đa dạng thuật toán**: Hỗ trợ Bubble Sort, Insertion Sort và Merge Sort (truy cập qua menu Thuật toán).
-
-## 🛠️ Công nghệ sử dụng
-- **React.js**: Quản lý trạng thái và cập nhật giao diện.
-- **CSS Transitions**: Tạo hiệu ứng dịch chuyển mềm mại cho các thanh khi hoán đổi vị trí.
-- **VSCodium**: IDE mã nguồn mở dùng để phát triển dự án.
+## 🛠 Tech Stack
+* **React.js**: For state management and UI updates.
+* **CSS Transitions**: For smooth animations during swaps and comparisons.
+* **VSCodium**: Open-source IDE used for development.
