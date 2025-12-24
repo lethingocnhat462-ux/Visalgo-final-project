@@ -9,7 +9,8 @@ import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
-    <Router>
+    
+      <Router basename="/Visalgo-final-project">
       <div className="app-container">
         <Header />
         <main style={{ padding: '20px' }}>
