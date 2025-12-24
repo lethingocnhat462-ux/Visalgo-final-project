@@ -1,0 +1,25 @@
+/* src/styles/Visualizer.css hoặc file tương đương */
+.visualizer-container {
+  width: 90%; /* Mở rộng chiều ngang */
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  
+  /* Tăng chiều cao vùng hiển thị */
+  min-height: 500px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bars-display {
+  display: flex;
+  align-items: flex-end; /* Căn các cột ở đáy */
+  justify-content: center;
+  /* Quan trọng: Chiều cao này quyết định độ lớn của biểu đồ */
+  height: 400px; 
+  padding-bottom: 40px; /* Chừa chỗ cho con số hiển thị bên dưới */
+}
