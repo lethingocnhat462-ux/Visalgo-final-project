@@ -28,7 +28,18 @@
   align-items: center;
 
 }
+.speed-control {
+  margin: 20px 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
+.speed-control input[type="range"] {
+  accent-color: #3b82f6; /* Màu xanh đồng bộ với nút bấm */
+  cursor: pointer;
+}
 /* 3. Làm nổi font chữ tiêu đề */
 
 .hero h1 {

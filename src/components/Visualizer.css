@@ -1,25 +1,47 @@
-/* src/styles/Visualizer.css hoặc file tương đương */
-.visualizer-container {
-  width: 90%; /* Mở rộng chiều ngang */
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  
-  /* Tăng chiều cao vùng hiển thị */
-  min-height: 500px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/* src/styles/Visualizer.css */
 
 .bars-display {
   display: flex;
-  align-items: flex-end; /* Căn các cột ở đáy */
+  align-items: flex-end; /* Quan trọng: Đẩy các wrapper xuống đáy khung chứa */
   justify-content: center;
-  /* Quan trọng: Chiều cao này quyết định độ lớn của biểu đồ */
   height: 400px; 
-  padding-bottom: 40px; /* Chừa chỗ cho con số hiển thị bên dưới */
+  gap: 12px;
+  padding: 20px;
+  width: 100%;
+}
+
+.bar-wrapper {
+  display: flex;
+  flex-direction: column; /* Xếp theo cột: [Số trên] -> [Thanh Bar] -> [Số dưới] */
+  justify-content: flex-end; /* Đẩy thanh bar xuống sát nhãn số phía dưới */
+  align-items: center;
+  height: 100%; 
+  flex: 1;
+  max-width: 60px;
+  min-width: 35px;
+}
+
+.bar {
+  width: 100%;
+  /* Thay đổi màu sang gradient xanh sáng để giống hình mẫu 72c54f.jpg */
+  background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%); 
+  border-radius: 8px 8px 0 0; /* Chỉ bo góc trên */
+  position: relative;
+}
+/* Thêm vào src/styles/Visualizer.css */
+.complexity-card {
+  border-left: 5px solid #4facfe; /* Màu xanh đồng bộ với các cột */
+  text-align: left;
+}
+
+.complexity-card table td {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.complexity-card code {
+  background: #eef2f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #f5576c; /* Màu đỏ nổi bật cho độ phức tạp */
 }

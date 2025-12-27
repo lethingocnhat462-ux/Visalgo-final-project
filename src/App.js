@@ -11,6 +11,7 @@ function App() {
   return (
     
       <Router basename="/Visalgo-final-project">
+    
       <div className="app-container">
         <Header />
         <main style={{ padding: '20px' }}>
