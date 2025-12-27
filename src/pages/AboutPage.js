@@ -33,7 +33,7 @@ const AboutPage = () => {
         <div className="about-card-large">
           <div className="card-icon blue"><FaFlag /></div>
           <h2>Tầm nhìn</h2>
-          <p>Xóa bỏ rào cản giữa lý thuyết khô khan và thực hành trực quan.</p>
+          <p>Xóa bỏ rào cản giữa lý thuyết khô khan và thực hành trực quan giúp học sinh và sinh viên có thể nhìn rõ hơn về cách hoạt động của các thuật toán.</p>
         </div>
 
         <div className="about-card-large">
@@ -44,10 +44,10 @@ const AboutPage = () => {
               <span className="dot blue"></span> <span>Mặc định: Chờ</span>
             </div>
             <div className="status-item">
-              <span className="dot red"></span> <span>Xử lý: Chạy</span>
+              <span className="dot red"></span> <span>Đang xử lý: So sánh</span>
             </div>
             <div className="status-item">
-              <span className="dot green"></span> <span>Xong: Đúng vị trí</span>
+              <span className="dot green"></span> <span>Hoàn thành: Đã xong</span>
             </div>
           </div>
         </div>

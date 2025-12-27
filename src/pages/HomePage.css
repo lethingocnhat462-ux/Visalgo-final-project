@@ -1,7 +1,7 @@
 /* ===== 1. TỔNG THỂ & BIẾN SỐ ===== */
 .home {
   font-family: var(--font-main);
-  background-color: var(--color-bg);
+  background-color: #5874a2;
   color: #ffffff;
   min-height: 100vh;
   margin: 0;
@@ -13,7 +13,7 @@
   background: 
     radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    linear-gradient(180deg, #5874a2 0%, #5970a5 100%);
   padding: 80px 20px 180px; /* Tăng padding bottom để tạo không gian */
   text-align: center;
   position: relative;
@@ -58,7 +58,7 @@
   display: inline-block;
   padding: 6px 16px;
   background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
+  color: #eaecf0;
   border-radius: 100px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -76,8 +76,8 @@
 }
 
 .intro-desc-new {
-  color: #94a3b8 !important;
-  font-size: 1.05rem;
+  color: #e6e8eb !important;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin: 0;
 }
@@ -112,18 +112,34 @@
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.04em;
-  background: linear-gradient(to bottom, #ffffff 40%, #94a3b8);
+  background: linear-gradient(to bottom, #ffffff 40%, #778eaa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0 !important;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
+.hero p {
+  color: #ffffff !important;      /* Ép chữ sang màu trắng sáng */
+  font-size: 1.2rem !important;    /* Kích thước to rõ rệt */
+  font-weight: 500 !important;    /* Chữ dày hơn để dễ đọc trên nền màu */
+  line-height: 1.7 !important;    /* Khoảng cách dòng thoáng */
+  max-width: 900px;               /* Dàn trải chữ rộng hơn */
+  margin: 30px auto 0 !important; /* Căn giữa và tạo khoảng cách với tiêu đề */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.4); /* Đổ bóng đậm hơn để nổi bật chữ */
+  opacity: 1 !important;          /* Hiển thị rõ 100% */
+}
 
 .hero-description {
   color: #64748b !important;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   max-width: 650px;
   margin-top: 20px;
+  font-weight: 500 !important;    /* Làm chữ dày hơn để dễ đọc */
+  line-height: 1.6;               /* Khoảng cách dòng vừa phải */
+  max-width: 900px;               /* Cho phép dòng chữ dàn trải rộng hơn */
+  margin: 30px auto 0;            /* Tăng khoảng cách với tiêu đề phía trên */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Thêm đổ bóng nhẹ để chữ nổi lên nền tím */
+  opacity: 1 !important;
 }
 
 /* ===== 6. NÚT BẤM & TÍNH NĂNG (GIỮ NGUYÊN CSS CỦA BẠN) ===== */
@@ -170,10 +186,124 @@
 .feature-card:hover {
   border-color: #3b82f6;
   transform: translateY(-10px);
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(98, 117, 161, 0.95);
 }
 
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-30px); }
   to { opacity: 1; transform: translateY(0); }
+}
+/* ===== CHỈNH RIÊNG CHO PHẦN THƯ VIỆN THUẬT TOÁN ===== */
+
+/* 1. Đổi màu nền của toàn bộ vùng này */
+.algorithm-library-section {
+  background-color: #2d4264 !important; /* Màu xanh đen giống trang chủ */
+  padding: 100px 0 !important;
+  color: #ffffff !important;
+}
+
+/* 2. Chỉnh màu cho Badge "Học thuật toán" */
+.algorithm-library-section .learning-badge {
+  background: rgba(59, 130, 246, 0.2) !important;
+  color: #60a5fa !important;
+  border: 1px solid rgba(96, 165, 250, 0.3) !important;
+}
+
+/* 3. Chỉnh màu tiêu đề "Thư viện Thuật toán" */
+.algorithm-library-section .library-title {
+  color: #ffffff !important;
+  font-size: 3.5rem !important;
+  margin-bottom: 20px !important;
+}
+
+/* 4. Chỉnh màu đoạn chữ mô tả "Chọn một thuật toán..." */
+.algorithm-library-section p {
+  color: #cbd5e1 !important; /* Màu xám bạc sáng */
+  text-shadow: none !important;
+  font-size: 1.2rem !important;
+}
+
+/* 5. Chỉnh màu các thẻ Card bên trong Thư viện */
+.algorithm-library-section .feature-card {
+  background: rgba(255, 255, 255, 0.05) !important; /* Nền mờ dạng kính */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.algorithm-library-section .feature-card h3 {
+  color: #ffffff !important; /* Tên Bubble Sort... màu trắng */
+}
+
+.algorithm-library-section .feature-card .sub-text,
+.algorithm-library-section .feature-card p {
+  color: #94a3b8 !important; /* Chữ "Sắp xếp nổi bọt" màu xám nhạt */
+}
+
+.algorithm-library-section .view-link {
+  color: #60a5fa !important; /* Link "Xem trực quan" màu xanh sáng */
+}
+/* ===== CHỈNH MÀU PHẦN GIỚI THIỆU ===== */
+.intro {
+  background-color: #7e7ebe !important; /* Màu tím chủ đạo như ảnh mẫu */
+  padding: 80px 20px !important;
+  text-align: center;
+  border-radius: 40px; /* Bo góc mượt mà */
+  margin: 40px 20px; /* Tạo khoảng cách với các phần khác */
+  color: #ffffff !important; /* Chữ trắng toàn bộ */
+}
+
+.intro h2 {
+  font-size: 3rem !important;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #ffffff !important;
+}
+
+.intro p {
+  font-size: 1.3rem !important;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #f1f5f9 !important; /* Màu trắng xám nhẹ cho đoạn văn */
+}
+/* ===== CHỈNH MÀU CÁC THẺ ƯU ĐIỂM ===== */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background-color: transparent; /* Để lộ nền trang */
+}
+
+.feature-card {
+  background: #ffffff !important; /* Thẻ màu trắng tinh */
+  color: #1e293b !important; /* Chữ màu tối để dễ đọc */
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+  flex: 1;
+  max-width: 350px;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px); /* Hiệu ứng bay lên khi di chuột */
+  border: 2px solid #7e7ebe; /* Hiện viền tím khi hover */
+}
+
+/* Màu của các Icon trong thẻ */
+.feature-card svg {
+  color: #7e7ebe !important; /* Icon màu tím */
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  color: #0f172a !important;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: #64748b !important;
+  font-size: 1rem;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Visualizer from '../components/Visualizer'; // Sử dụng lại Component Visualizer bạn đã có
 import { bubbleSortSteps } from '../algorithms/bubbleSort';
 import { insertionSortSteps } from '../algorithms/insertionSort';
-import { mergeSortSteps } from '../algorithms/mergeSort';
+
 
 const RaceMode = ({ inputArray }) => {
   // State cho thuật toán bên trái và bên phải
