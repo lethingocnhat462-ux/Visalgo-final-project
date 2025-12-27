@@ -25,7 +25,7 @@ const AboutPage = () => {
         </div>
         <div style={styles.card}>
           <h3>🔴 Đang xử lý</h3>
-          <p>Các phần tử đang được so sánh hoặc hoán đổi vị trí (Red/Yellow).</p>
+          <p>Các phần tử đang được so sánh hoặc hoán đổi vị trí (Red/Orange).</p>
         </div>
         <div style={styles.card}>
           <h3>🟢 Đã hoàn thành</h3>
@@ -40,7 +40,7 @@ const AboutPage = () => {
           <li><strong>Như Quỳnh:</strong> Phát triển UI Component & Logic điều khiển.</li>
           <li><strong>Hồng Phương:</strong> Điều hướng, Tài liệu & Quản lý nội dung.</li>
           <li><strong>Mỹ Diệu:</strong> Thiết kế Global Styles,Xây dựng Thanh Header.</li>
-          <li><strong>Thanh Thuận:</strong>Code Logic 3 Thuật toán.</li>
+          <li><strong>Thanh Thuận:</strong> Code Logic 3 Thuật toán.</li>
         </ul>
       </section>
     </div>
