@@ -1,126 +1,171 @@
-/* Container chính */
+/* ===== 1. TỔNG THỂ NỀN TỐI (DEEP NAVY) ===== */
 .algo-page-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 20px;
+  max-width: 100% !important; /* Mở rộng để phủ nền toàn màn hình */
+  margin: 0;
+  padding: 100px 20px;
   font-family: 'Inter', sans-serif;
-  color: #1a1a1a;
+  /* Chuyển sang màu nền tối sâu giống trang chủ */
+  background-color: #1a1a38; 
+  color: #ffffff;
+  min-height: 100vh;
 }
 
-/* Phần tiêu đề */
+/* ===== 2. PHẦN TIÊU ĐỀ ===== */
 .algo-header-section {
   text-align: center;
   margin-bottom: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .algo-badge {
-  background: #f0f7ff;
-  color: #0070f3;
-  padding: 6px 16px;
+  /* Đổi sang màu xanh mờ cho hợp nền tối */
+  background: rgba(52, 52, 172, 0.15);
+  color: #60a5fa;
+  padding: 8px 20px;
   border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .algo-page-title {
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 20px 0;
-  background: linear-gradient(90deg, #1a1a1a, #0070f3);
-  -webkit-background-clip: text;
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 25px 0;
+  
+  /* Tạo dải màu nền */
+  background: linear-gradient(to right, #ffffff, #60a5fa, #2563eb);
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.6));
+  /* --- PHẦN QUAN TRỌNG ĐỂ CẮT MÀU THEO CHỮ --- */
+  -webkit-background-clip: text; /* Cho Chrome, Safari, Edge */
+  background-clip: text;         /* THUỘC TÍNH TIÊU CHUẨN (Fix lỗi bạn gặp) */
+  
+  /* Làm màu chữ gốc trong suốt để lộ màu nền bên dưới */
   -webkit-text-fill-color: transparent;
+  
+  /* Thuộc tính dự phòng (Fallback) cho trình duyệt quá cũ */
+  color: #ffffff; 
 }
 
 .algo-page-subtitle {
-  color: #666;
-  font-size: 1.1rem;
+  color: #94a3b8; /* Xám xanh dịu mắt */
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Grid Layout */
+/* ===== 3. GRID LAYOUT & CARD KÍNH (GLASSMORPHISM) ===== */
 .algo-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  margin-top: 40px;
+  max-width: 1200px;
+  margin: 60px auto 0;
 }
 
-/* Card Style hiện đại */
 .algo-glass-card {
-  background: #ffffff;
+  /* Tăng độ sáng của nền khung lên */
+  background: rgba(255, 255, 255, 0.05) !important; /* Sáng hơn so với 0.03 trước đó */
+  backdrop-filter: blur(20px) saturate(180%); 
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  
   padding: 40px 30px;
-  border-radius: 24px;
-  border: 1px solid #eaeaea;
-  text-align: left; /* Căn trái nhìn sang hơn */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  display: flex;
-  flex-direction: column;
+  border-radius: 28px;
+  /* Viền sáng hơn để định hình khung rõ rệt */
+  border: 1px solid rgba(255, 255, 255, 0.12); 
+  
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
-
 .algo-glass-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  border-color: #0070f3;
+  transform: translateY(-12px);
+  
+  /* Khi di chuột: Tăng độ sáng viền và đổ bóng xanh dương nhẹ */
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(59, 130, 246, 0.5); 
+  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
 }
 
 .algo-card-icon {
-  font-size: 2.5rem;
-  color: #0070f3;
-  margin-bottom: 20px;
-  background: #f0f7ff;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 2rem;
+  /* 1. Đổi sang màu trắng để nổi bật hoàn toàn trên nền tối */
+  color: #ffffff !important; 
+  margin-bottom: 25px;
+  /* 2. Dùng màu xanh dương rực rỡ làm nền cho icon */
+  background: linear-gradient(135deg, #2857a3, #2563eb) !important;
+  width: 64px;
+  height: 64px;
   border-radius: 18px;
+  display: flex;            /* Kích hoạt Flexbox */
+  align-items: center;      /* Căn giữa theo chiều dọc */
+  justify-content: center;   /* Căn giữa theo chiều ngang */
+  
+  /* 4. Thêm hiệu ứng phát sáng nhẹ (Glow) */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  
+  transition: all 0.3s ease;
 }
 
 .algo-glass-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  color: #ffffff; /* Tên thuật toán màu trắng */
   margin-bottom: 12px;
-  color: #111;
 }
 
 .algo-glass-card p {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  flex-grow: 1;
+  color: #d5e7ff; /* Nội dung xám xanh chuyên nghiệp */
+  line-height: 1.7;
 }
 
-/* Nút xem trực quan */
+/* ===== 4. NÚT XEM TRỰC QUAN (NEON LINK) ===== */
 .algo-view-btn {
-  text-decoration: none;
-  font-weight: 600;
-  color: #0070f3;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: gap 0.3s ease;
+  
+  /* 1. TĂNG ĐỘ NỔI: Dùng màu xanh sáng hơn và chữ đậm hơn */
+  color: #60a5fa !important; 
+  font-weight: 800; /* Làm chữ dày hơn để không bị chìm */
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  /* 2. TẠO NỀN NHẸ: Giúp phân biệt vùng bấm */
+  background: rgba(47, 101, 187, 0.15); 
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  
+  /* 3. HIỆU ỨNG PHÁT SÁNG NHẸ: Giúp nút tự "tỏa sáng" trên nền xám */
+  box-shadow: 0 4px 12px rgba(87, 175, 201, 0.2);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+/* KHI DI CHUỘT VÀO (HOVER) */
+.algo-view-btn:hover {
+  /* Biến thành một khối màu xanh rực rỡ */
+  background: #3b82f6 !important; 
+  color: #ffffff !important;
+  border-color: #3b82f6;
+  
+  /* Tăng cường độ phát sáng khi tương tác */
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
 }
 
 .algo-view-btn span {
+  font-size: 1.2rem;
   transition: transform 0.3s ease;
-}
-
-.algo-view-btn:hover {
-  color: #0051ad;
 }
 
 .algo-view-btn:hover span {
   transform: translateX(5px);
-}
-.algo-glass-card {
-  position: relative;
-  z-index: 1; /* Đảm bảo card nằm trên nền */
-}
-
-.algo-view-btn {
-  position: relative;
-  z-index: 2; /* Đảm bảo nút nằm trên cùng để nhận click */
-  cursor: pointer;
-  display: inline-block;
 }

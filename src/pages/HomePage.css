@@ -1,179 +1,345 @@
-/* ===== 1. TỔNG THỂ & BIẾN SỐ ===== */
+/* ===== 1. TỔNG THỂ NỀN SÂU HƠN ===== */
 .home {
-  font-family: var(--font-main);
-  background-color: var(--color-bg);
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a; /* Dark Navy chuyên nghiệp */
   color: #ffffff;
-  min-height: 100vh;
-  margin: 0;
   overflow-x: hidden;
 }
 
-/* ===== 2. HERO SECTION (NỀN TẢNG) ===== */
+/* ===== 2. HERO SECTION VỚI GRADIENT MƯỢT MÀ ===== */
 .hero {
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, #020617 0%, #0f172a 100%);
-  padding: 80px 20px 180px; /* Tăng padding bottom để tạo không gian */
+  /* Tạo nền chuyển từ xanh tối sang tím nhẹ ở giữa */
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+              linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  padding: 120px 20px 200px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Lưới tọa độ ẩn bên dưới tạo cảm giác công nghệ */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
-
-/* CĂN CHỈNH NỘI DUNG HERO */
+/* 1. Đảm bảo Container luôn nằm giữa */
 .hero-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 50px; /* TẠO KHOẢNG CÁCH GIỮA CÁC KHỐI */
+  align-items: center;    /* Căn giữa theo trục ngang */
+  text-align: center;      /* Căn giữa chữ */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;         /* Căn giữa toàn bộ container */
   position: relative;
   z-index: 10;
+  gap: 40px;              /* Khoảng cách đồng nhất giữa các khối */
 }
 
-/* ===== 3. TRANG TRÍ PHẦN INTRO (VỀ DỰ ÁN) ===== */
+/* 2. Sửa lỗi khối Intro bị méo */
 .intro-top {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;         /* Ép khối này nằm giữa */
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  padding: 30px 40px;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  max-width: 700px;
-  animation: fadeInDown 0.8s ease-out;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
-.intro-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  margin-bottom: 15px;
-}
-
-.intro-title-new {
-  font-size: 2rem !important;
-  color: #ffffff !important;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.intro-desc-new {
-  color: #94a3b8 !important;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ===== 4. ĐƯỜNG KẺ PHÂN CÁCH CÔNG NGHỆ ===== */
+/* 3. Căn giữa đường kẻ */
 .ui-divider {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
   width: 100%;
-  max-width: 400px;
-  margin: 10px 0;
+  max-width: 500px;
+  margin: 10px auto;      /* Căn giữa divider */
 }
 
-.ui-divider .line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
-}
-
-.ui-divider .dot {
-  width: 6px;
-  height: 6px;
-  background: #3b82f6;
-  border-radius: 50%;
-  box-shadow: 0 0 15px #3b82f6;
-}
-
-/* ===== 5. TIÊU ĐỀ CHÍNH ===== */
+/* 4. Tiêu đề chính khổng lồ và cân đối */
 .hero-title {
   font-size: 5.5rem !important;
   font-weight: 900;
   line-height: 1.1;
-  letter-spacing: -0.04em;
-  background: linear-gradient(to bottom, #ffffff 40%, #94a3b8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0 !important;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  letter-spacing: -0.05em;
+  margin: 0 auto !important;
+  text-align: center;
 }
 
-.hero-description {
-  color: #64748b !important;
-  font-size: 1.2rem;
-  max-width: 650px;
-  margin-top: 20px;
+.hero-p {
+  font-size: 1.25rem !important;
+  color: #94a3b8 !important;
+  max-width: 800px;
+  margin: 20px auto 30px !important; /* Căn giữa đoạn mô tả */
+}
+/* ===== 3. KHỐI INTRO (GLASSMORPHISM) ===== */
+.intro-top {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px); /* Hiệu ứng kính mờ */
+  padding: 40px;
+  border-radius: 32px; /* Bo tròn mạnh hơn */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 800px;
+  margin-bottom: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.lang-switch-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
 }
 
-/* ===== 6. NÚT BẤM & TÍNH NĂNG (GIỮ NGUYÊN CSS CỦA BẠN) ===== */
-.cta-btn {
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  color: #ffffff !important;
-  padding: 18px 45px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-flex;
+.lang-switch-container button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-switch-container button.active {
+    background: #60a5fa;
+    border-color: #60a5fa;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+.intro-title-new {
+    /* XÓA DẤU { DƯ THỪA Ở ĐÂY */
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 20px 0;
+
+    /* MÀU CHỮ: Trắng sáng ở trên, xanh Neon ở dưới để tạo độ tương phản cực mạnh */
+    background: linear-gradient(to bottom, #ffffff 30%, #60a5fa 100%);
+    
+    /* Cắt màu theo hình chữ */
+    -webkit-background-clip: text;
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+
+    /* HIỆU ỨNG PHÁT SÁNG: Giúp chữ nổi hẳn lên khỏi mặt nền */
+    filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.6));
+    
+    line-height: 1.2;
+}
+
+/* ===== 4. DIVIDER NỔI BẬT (GLOW) ===== */
+.ui-divider {
+  display: flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 40px 0;
 }
 
-.cta-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+.ui-divider .line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
 }
 
+.ui-divider .dot {
+  width: 8px;
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #3b82f6, 0 0 30px #3b82f6;
+}
+
+/* ===== 5. TIÊU ĐỀ CHÍNH SIÊU ĐẬM ===== */
+.hero-title {
+  font-size: 5.5rem !important;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+  margin: 0;
+  /* Hiệu ứng đổ bóng chữ cho chiều sâu */
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  color: #94a3b8 !important;
+  font-size: 1.25rem !important;
+  max-width: 700px;
+  margin: 25px auto 0 !important;
+}
+
+/* ===== 6. TÍNH NĂNG (CARD TRẮNG TINH KHÔI) ===== */
 .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  justify-content: center;
   gap: 30px;
   max-width: 1200px;
-  margin: -80px auto 100px; /* Đẩy thẻ đè lên Hero để bớt rời rạc */
+  margin: -100px auto 100px; /* Đẩy thẻ đè lên phần Hero */
   padding: 0 20px;
   position: relative;
   z-index: 20;
 }
+/* Tìm hoặc thêm class này vào file CSS */
+.hero-section h1 {
+    font-size: 4rem; /* Tăng kích thước chữ */
+    font-weight: 800;
+    
+    /* Tạo màu Gradient từ xanh sang tím */
+    /* Tạo màu Gradient từ xanh sang tím */
+background: linear-gradient(135deg, #3b82f6, #8b5cf6);
 
+/* 1. Tiền tố cho các trình duyệt dùng nhân Webkit (Chrome, Safari, Edge mới) */
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+/* 2. THÊM DÒNG NÀY: Thuộc tính tiêu chuẩn để tương thích hoàn toàn (Fix lỗi thông báo) */
+background-clip: text;
+    
+    /* Hiệu ứng đổ bóng phát sáng (Glow) giúp chữ nổi lên */
+    text-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+    
+    /* Thêm hiệu ứng nổi khối nhẹ */
+    letter-spacing: -1px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    
+    margin-bottom: 20px;
+}
+.about-section h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    /* Tạo màu chữ chuyển sắc */
+background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+
+/* 1. Dành cho các trình duyệt nhân Webkit (Chrome, Safari, Edge) */
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+/* 2. THÊM DÒNG NÀY: Thuộc tính tiêu chuẩn để tương thích hoàn toàn */
+background-clip: text; 
+
+/* 3. THÊM HIỆU ỨNG NỔI BẬT: Giúp chữ không bị chìm trên nền tối */
+filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.5));
+    /* Đổ bóng cho chữ nổi lên */
+    filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.5));
+    margin-bottom: 20px;
+}
 .feature-card {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 40px 30px;
-  border-radius: 24px;
-  transition: all 0.4s ease;
+  background: #ffffff !important; /* Card trắng như ảnh bạn gửi */
+  color: #1e293b !important;
+  padding: 50px 35px;
+  border-radius: 35px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
 }
 
 .feature-card:hover {
-  border-color: #3b82f6;
-  transform: translateY(-10px);
-  background: rgba(15, 23, 42, 0.95);
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px rgba(59, 130, 246, 0.2);
+}
+.intro-badge {
+    /* Tăng kích thước chữ (mặc định thường là 0.75rem hoặc 12px) */
+    font-size: 1.1rem; /* Bạn có thể tăng lên 1.2rem nếu muốn to nữa */
+    
+    /* Làm chữ đậm hơn để dễ đọc */
+    font-weight: 700; 
+    
+    /* Tăng khoảng cách đệm để cái khung badge cân đối với chữ to */
+    padding: 8px 24px; 
+    
+    /* Giữ nguyên các thuộc tính trang trí khác */
+    display: inline-block;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Màu sắc để không bị chìm */
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    margin-bottom: 20px;
 }
 
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.feature-card svg {
+  color: #3b82f6 !important; /* Icon xanh dương thương hiệu */
+  font-size: 2.5rem;
+}
+/* ===== NÂNG CẤP NÚT BẮT ĐẦU NGAY (DESIGNER EDITION) ===== */
+.cta-btn {
+  /* 1. Màu sắc: Gradient từ Xanh sang Tím cực hiện đại */
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff !important;
+  
+  /* 2. Kích thước & Hình dáng */
+  padding: 16px 45px;
+  border-radius: 999px; /* Bo tròn hoàn hảo dạng viên thuốc */
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 50px !important;
+  /* 3. Hiệu ứng chiều sâu */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4), 
+              inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  
+  /* 4. Animation mượt mà */
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Hiệu ứng vệt sáng quét qua khi hover */
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: -1;
+}
+
+/* TRẠNG THÁI HOVER (DI CHUỘT) */
+.cta-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+  letter-spacing: 1px; /* Giãn chữ nhẹ tạo cảm giác sang trọng */
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+/* TRẠNG THÁI ACTIVE (CLICK) */
+.cta-btn:active {
+  transform: translateY(-2px) scale(0.98);
 }

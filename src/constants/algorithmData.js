@@ -1,11 +1,11 @@
 export const ALGO_INFO = {
   bubble: {
-    name: "Sắp xếp nổi bọt (Bubble Sort)",
+    name: "Bubble Sort",
     worstCase: "O(n²)",
     averageCase: "Θ(n²)",
     bestCase: "Ω(n)",
     spaceComplexity: "O(1)",
-    description: "Duyệt mảng nhiều lần, so sánh các cặp phần tử kề nhau và hoán đổi chúng nếu sai thứ tự. Các phần tử lớn nhất sẽ 'nổi' dần lên cuối mảng.",
+    description: "Repeatedly traverse the array, compare adjacent elements, and swap them if they are out of order. Larger elements will 'bubble' to the end of the array.",
     pseudocode: [
       "do",
       "  swapped = false",
@@ -17,12 +17,12 @@ export const ALGO_INFO = {
     ]
   },
   selection: {
-    name: "Sắp xếp chọn (Selection Sort)",
+    name: "Selection Sort",
     worstCase: "O(n²)",
     averageCase: "Θ(n²)",
     bestCase: "Ω(n²)",
     spaceComplexity: "O(1)",
-    description: "Chia mảng thành hai phần: đã sắp xếp và chưa sắp xếp. Thuật toán liên tục tìm phần tử nhỏ nhất trong phần chưa sắp xếp và đưa nó về cuối phần đã sắp xếp.",
+    description: "Split the array into sorted and unsorted sections. Continuously find the smallest unsorted element and append it to the sorted section.",
     pseudocode: [
       "for i = 0 to n-1",
       "  minIndex = i",
@@ -33,12 +33,12 @@ export const ALGO_INFO = {
     ]
   },
   insertion: {
-    name: "Sắp xếp chèn (Insertion Sort)",
+    name: "Insertion Sort",
     worstCase: "O(n²)",
     averageCase: "Θ(n²)",
     bestCase: "Ω(n)",
     spaceComplexity: "O(1)",
-    description: "Xây dựng mảng đã sắp xếp bằng cách lấy từng phần tử từ phần chưa sắp xếp và 'chèn' nó vào đúng vị trí trong phần đã sắp xếp.",
+    description: "Construct a sorted sub-array by iteratively removing elements from the unsorted portion and inserting them into their proper place in the sorted portion.",
     pseudocode: [
       "for i = 1 to n-1",
       "  key = array[i]",

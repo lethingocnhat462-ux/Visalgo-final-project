@@ -3,17 +3,31 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #515f8d; /* Giữ màu tím chủ đạo của bạn */
+  background-color: #2b3348; /* Giữ màu tím chủ đạo của bạn */
   border-radius: 24px;
   color: white;
   position: relative;
+  background: linear-gradient(145deg, #2b3348 0%, #1e2536 100%); 
+  overflow: hidden; /* Để che các khối trang trí tràn viền */
 }
-
+/* Thêm các đốm sáng trang trí ẩn hiện */
+.about-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+}
 .about-hero {
   text-align: center;
   margin-bottom: 50px;
   color: #ffffff;
   line-height: 1.4;
+  line-height: 1.6;
 }
 
 .about-label {
@@ -148,6 +162,48 @@
   color: #333; 
 }
 
+
+.about-wrapper {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 60px 30px;
+  background: linear-gradient(145deg, #2b3348 0%, #1a202f 100%);
+  border-radius: 32px;
+  color: white;
+  position: relative; /* Bắt buộc để hoa không bay ra ngoài */
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* 1. TRANG TRÍ MÁY TÍNH Ở GÓC PHẢI (Dùng Emoji quy mô lớn) */
+.about-wrapper::before {
+  content: "💻"; /* Dùng biểu tượng máy tính cố định */
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  font-size: 25rem; /* Kích thước cực đại để tạo thành mảng khối */
+  opacity: 0.03; /* Để thật mờ, tạo thành họa tiết chìm */
+  filter: grayscale(1) blur(2px); /* Biến thành màu xám và làm mờ cho sang */
+  z-index: 0;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+/* 2. HỌA TIẾT GRID (MẠNG LƯỚI) - CHẮC CHẮN HIỆN */
+.about-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Tạo lưới chấm nhỏ li ti kiểu công nghệ hiện đại */
+  background-image: radial-gradient(#4f46e5 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+}
 .dot { 
   width: 10px; 
   height: 10px; 

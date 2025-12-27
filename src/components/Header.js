@@ -15,16 +15,16 @@ const Header = () => {
 
       <nav className="nav-container">
         <ul className="nav-links">
-          <li><NavLink to="/" end>Trang chủ</NavLink></li>
+          <li><NavLink to="/" end>Homepage</NavLink></li>
           <li className="dropdown">
-            <span className="dropbtn">Thuật toán ▼</span>
+            <span className="dropbtn">Algorithms ▼</span>
             <div className="dropdown-menu">
               <NavLink to="/algorithms/bubble">Bubble Sort</NavLink>
               <NavLink to="/algorithms/insertion">Insertion Sort</NavLink>
               <NavLink to="/algorithms/merge">Merge Sort</NavLink>
             </div>
           </li>
-          <li><NavLink to="/about">Giới thiệu</NavLink></li>
+          <li><NavLink to="/about">Introduction</NavLink></li>
         </ul>
       </nav>
     </header>

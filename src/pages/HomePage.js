@@ -1,58 +1,65 @@
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import { FaEye, FaChartBar, FaUserGraduate, FaRocket } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 function HomePage() {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <div className="home">
+      {/* Thanh chuyển đổi ngôn ngữ cố định góc màn hình hoặc trong card */}
+      <div className="lang-switch-container">
+        <button className={i18n.language === 'vi' ? 'active' : ''} onClick={() => changeLanguage('vi')}>VI</button>
+        <button className={i18n.language === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')}>EN</button>
+      </div>
+
       <section className="hero">
-        {/* Điểm sáng trang trí nền */}
         <div className="glow-bg"></div>
         
         <div className="hero-content">
-          {/* PHẦN GIỚI THIỆU TRÊN CÙNG */}
+          {/* Phần giới thiệu đa ngôn ngữ */}
           <div className="intro-top">
-            <div className="intro-badge">Về dự án</div>
-            <h2 className="intro-title-new">Vis Algo là gì?</h2>
-            <p className="intro-desc-new">
-              Nền tảng học tập tương tác, biến các thuật toán phức tạp thành trải nghiệm hình ảnh sinh động.
-            </p>
+            <div className="intro-badge">{t('about_badge')}</div>
+            <h2 className="intro-title-new">{t('title')}</h2>
+            <p className="intro-desc-new">{t('description')}</p>
           </div>
 
-          {/* ĐƯỜNG KẺ TRANG TRÍ MỚI - GIÚP NGẮT BỐ CỤC */}
           <div className="ui-divider">
             <span className="line"></span>
             <div className="dot"></div>
             <span className="line"></span>
           </div>
 
-          {/* TIÊU ĐỀ CHÍNH */}
           <div className="main-headline">
-            <h1 className="hero-title">Trực Quan Hóa <br/> Thuật Toán Sắp Xếp</h1>
-            <p className="hero-p">Giúp bạn nắm vững logic sắp xếp thông qua mô phỏng từng bước rõ ràng.</p>
+            <h1 className="hero-title">{t('hero_title')}</h1>
+            <p className="hero-p">{t('hero_subtitle')}</p>
             <Link to="/algorithms" className="cta-btn">
-               <FaRocket style={{ marginRight: '10px' }} /> Bắt đầu ngay
+               <FaRocket style={{ marginRight: '10px' }} /> {t('get_started')}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Phần tính năng ở dưới */}
       <section className="features">
         <div className="feature-card">
           <div className="icon-box"><FaEye size={28} /></div>
-          <h3>Dễ hiểu</h3>
-          <p>Minh họa logic từng bước một cách chi tiết.</p>
+          <h3>{t('feat_1_title')}</h3>
+          <p>{t('feat_1_desc')}</p>
         </div>
         <div className="feature-card">
           <div className="icon-box"><FaChartBar size={28} /></div>
-          <h3>Trực quan</h3>
-          <p>Màu sắc phân biệt rõ ràng các trạng thái dữ liệu.</p>
+          <h3>{t('feat_2_title')}</h3>
+          <p>{t('feat_2_desc')}</p>
         </div>
         <div className="feature-card">
           <div className="icon-box"><FaUserGraduate size={28} /></div>
-          <h3>Thân thiện</h3>
-          <p>Giao diện tối ưu cho trải nghiệm học tập hiện đại.</p>
+          <h3>{t('feat_3_title')}</h3>
+          <p>{t('feat_3_desc')}</p>
         </div>
       </section>
     </div>
