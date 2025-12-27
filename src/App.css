@@ -1,3 +1,10 @@
+/* Áp dụng cho toàn bộ trang web */
+body, html, #root {
+  background-color: #404083 !important; /* Màu tím sẫm bạn đã chọn cho trang chủ */
+  margin: 0;
+  padding: 0;
+  color: white;
+}
 .App {
   text-align: center;
 }
@@ -44,27 +51,29 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  height: 70px; /* Chiều cao cố định cho sang */
-  background: rgba(255, 255, 255, 0.9); /* Trắng trong suốt */
-  backdrop-filter: blur(12px); /* Hiệu ứng kính mờ */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  height: 70px;
+  /* Thay đổi: Dùng màu tím nhạt trong suốt làm nền Navbar */
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(126, 126, 190, 0.1); /* Bóng đổ tím nhẹ */
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(126, 126, 190, 0.1);
 }
 
-/* Phần Logo bên trái */
+/* 2. Phần Logo bên trái */
 .nav-logo {
   font-size: 1.6rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #4f46e5, #9333ea); /* Gradient Tím Xanh */
+  /* Thay đổi: Dùng Gradient tông tím #7e7ebe làm chủ đạo */
+  background: linear-gradient(135deg, #7e7ebe, #5e5eb3); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   cursor: pointer;
 }
 
-/* Danh sách các liên kết menu */
+/* 3. Danh sách liên kết */
 .nav-links {
   display: flex;
   gap: 35px;
@@ -74,17 +83,17 @@
   align-items: center;
 }
 
-/* Từng item menu */
+/* 4. Từng item menu */
 .nav-item {
   position: relative;
   text-decoration: none;
   font-weight: 600;
-  color: #1e293b; /* Màu chữ tối thanh lịch */
+  color: #1e293b; /* Giữ màu chữ tối cho dễ đọc */
   font-size: 1rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Hiệu ứng gạch chân chạy khi Hover */
+/* 5. Hiệu ứng gạch chân chạy và đổi màu chữ khi Hover */
 .nav-item::after {
   content: '';
   position: absolute;
@@ -92,22 +101,27 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background: #4f46e5;
+  background: #7e7ebe; /* Gạch chân màu tím thương hiệu */
   transition: width 0.3s ease;
 }
 
 .nav-item:hover {
-  color: #4f46e5;
+  color: #7e7ebe; /* Chữ đổi sang tím khi di chuột qua */
 }
 
 .nav-item:hover::after {
   width: 100%;
 }
 
-/* Dropdown cho Thuật toán */
+/* 6. Dropdown cho Thuật toán */
 .nav-dropdown {
   display: flex;
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  color: #1e293b;
+}
+
+.nav-dropdown:hover {
+  color: #7e7ebe;
 }
