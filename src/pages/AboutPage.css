@@ -3,7 +3,7 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
-  background-color: #7e7ebe; /* Giữ màu tím chủ đạo của bạn */
+  background-color: #6a749a; /* Giữ màu tím chủ đạo của bạn */
   border-radius: 24px;
   color: white;
   position: relative;
@@ -13,7 +13,7 @@
   text-align: center;
   margin-bottom: 50px;
   color: #ffffff;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 .about-label {
@@ -21,7 +21,7 @@
   color: #4f46e5;
   padding: 6px 14px;
   border-radius: 100px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -31,6 +31,32 @@
   margin-top: 20px;
   color: #f8faff;
   letter-spacing: -1px;
+}
+/* Chỉnh chữ mô tả dưới tiêu đề */
+.about-hero p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #e2e8f0;
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+/* Chỉnh cỡ chữ trong các thẻ Card (Tầm nhìn/Quy ước) */
+.about-card-large h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.about-card-large p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #334155;
+}
+
+/* Cỡ chữ cho các mục quy ước */
+.status-item span {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /* Grid Layout thông tin tầm nhìn & quy ước */
@@ -63,7 +89,7 @@
 }
 
 .team-title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-bottom: 25px;
   text-align: center;
   color: #ffffff;
@@ -158,3 +184,4 @@
 .dot.blue { background: #3b82f6; } 
 .dot.red { background: #ef4444; } 
 .dot.green { background: #10b981; }
+

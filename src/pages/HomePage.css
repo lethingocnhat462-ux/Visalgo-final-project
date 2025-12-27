@@ -267,43 +267,57 @@
   color: #f1f5f9 !important; /* Màu trắng xám nhẹ cho đoạn văn */
 }
 /* ===== CHỈNH MÀU CÁC THẺ ƯU ĐIỂM ===== */
+/* Container bao quanh các card */
 .features {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 60px 20px;
-  background-color: transparent; /* Để lộ nền trang */
+  padding: 50px 20px;
+  flex-wrap: wrap; /* Hỗ trợ hiển thị trên di động */
 }
 
+/* Style cho từng khung Card */
 .feature-card {
-  background: #ffffff !important; /* Thẻ màu trắng tinh */
-  color: #1e293b !important; /* Chữ màu tối để dễ đọc */
+  background: rgba(20, 19, 25, 0.08); /* Nền hơi trong suốt (Glassmorphism) */
+  border: 1px solid rgba(17, 20, 23, 0.2); /* Viền mảnh */
+  border-radius: 20px;
   padding: 40px 30px;
-  border-radius: 24px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  width: 280px;
   text-align: center;
-  flex: 1;
-  max-width: 350px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px); /* Hiệu ứng mờ nền */
+  color: white; /* Chữ màu trắng để nổi trên nền tím của body */
 }
 
+/* Hiệu ứng khi di chuột vào (Hover) */
 .feature-card:hover {
-  transform: translateY(-10px); /* Hiệu ứng bay lên khi di chuột */
-  border: 2px solid #7e7ebe; /* Hiện viền tím khi hover */
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-10px); /* Bay lên nhẹ */
+  border-color: #4e8dbe; /* Đổi viền sang màu xanh lá neon (giống ảnh mẫu của bạn) */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-/* Màu của các Icon trong thẻ */
+/* Chỉnh màu cho các Icon bên trong */
 .feature-card svg {
-  color: #7e7ebe !important; /* Icon màu tím */
   margin-bottom: 20px;
+  color: #f7f8f9; /* Màu icon xanh neon cho nổi bật */
+  transition: transform 0.3s ease;
 }
 
+.feature-card:hover svg {
+  transform: scale(1.1); /* Icon phóng to nhẹ khi hover */
+}
+
+/* Tiêu đề trong card */
 .feature-card h3 {
-  color: #0f172a !important;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
 }
 
+/* Nội dung mô tả trong card */
 .feature-card p {
-  color: #64748b !important;
   font-size: 1rem;
+  line-height: 1.5;
+  color: #e0e0e0; /* Màu chữ trắng mờ cho dịu mắt */
 }

@@ -125,3 +125,58 @@ body, html, #root {
 .nav-dropdown:hover {
   color: #7e7ebe;
 }
+/* --- THIẾT KẾ CÁC KHUNG (CARDS) TRỰC QUAN --- */
+
+.feature-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px 5%;
+  flex-wrap: wrap; /* Tự động xuống dòng trên điện thoại */
+}
+
+.custom-card {
+  /* Màu nền: Trắng đục (Glassmorphism) để nổi bật trên nền tím sẫm */
+  background: rgba(255, 255, 255, 0.9); 
+  border-radius: 20px;
+  padding: 35px;
+  width: 280px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  
+  /* Viền tím nhẹ */
+  border: 1px solid rgba(19, 24, 32, 0.3);
+  
+  /* Bóng đổ mềm mại */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Hiệu ứng khi di chuột vào khung */
+.custom-card:hover {
+  transform: translateY(-12px); /* Khung bay lên */
+  background: #ffffff; /* Sáng rực lên */
+  border-color: #7e7ebe; /* Viền tím đậm hơn */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Chỉnh màu chữ bên trong khung để không bị lẫn với nền body */
+.custom-card h3 {
+  color: #404083; /* Màu tiêu đề khung là màu tím sẫm */
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.custom-card p {
+  color: #eeedef; /* Màu nội dung xám đậm dễ đọc */
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Chỉnh màu cho Icon (nếu có) */
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+  color: #7e7ebe; /* Màu tím thương hiệu */
+}
