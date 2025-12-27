@@ -1,166 +1,125 @@
-/* Import font chữ hiện đại, hỗ trợ tiếng Việt cực tốt */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
-:root {
-  /* ===== MODERN COLOR PALETTE ===== */
-  --color-bg: #020617;
-  --color-bg-secondary: #0f172a;
-  --color-text: #1e293b; /* Off-black cho cảm giác cao cấp */
-  --color-text-muted: #64748b;
-  --color-text-light: #f1f5f9;  /* Chữ trên nền tối */
-  --color-primary: #3b82f6; /* Blue chuẩn Apple */
-  --color-primary-hover: #0062cc;
-  --color-primary-dark: #2563eb;
-  --color-border: rgba(255, 255, 255, 0.1); /* Viền mờ nhẹ */;
-  --glass-bg: rgba(15, 23, 42, 0.8);
-  /* Màu nền */
-  --color-bg-light: #f8fafc;    /* Nền trang web */
-  --color-bg-dark: #0f172a;     /* Nền Hero / Header */
-
-  /* ===== MODERN TYPOGRAPHY ===== */
-  --font-main: 'Plus Jakarta Sans', sans-serif;
-
-  /* ===== EFFECTS ===== */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 24px;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-  --transition: all 0.3s ease;
+/* --- TỐI ƯU HEADER THEO BIẾN INDEX.CSS --- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  height: 75px;
+  background-color: rgba(255, 255, 255, 0.8); /* Nền sáng nhẹ */
+  backdrop-filter: blur(15px); /* Kính mờ từ biến index */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-sm); /* Dùng shadow từ index.css */
 }
 
-/* Dark Mode support */
-[data-theme="dark"] {
-  --color-bg: #020617;
-  --color-bg-secondary: #0f172a;
-  --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-border: #1e293b;
-  --glass-bg: rgba(15, 23, 42, 0.8);
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
+.nav-logo {
+  height: 40px;
+  width: auto;
 }
 
-body {
+.logo-text {
   font-family: var(--font-main);
-  background-color: var(--color-bg-light); /* ✅ TRẮNG */
-  color: var(--color-text);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-
-/* Chỉnh chữ tiêu đề bắt mắt */
-h1 {
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  background: linear-gradient(to bottom right, var(--color-text), #64748b);
+  /* Sử dụng dải màu Primary từ index.css */
+  background: linear-gradient(135deg, var(--color-primary), #a855f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-p {
-  font-size: 1.125rem;
-  color: var(--color-text-muted);
-}
-
-/* Nút bấm hiện đại */
-.btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: var(--transition);
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  box-shadow: 0 4px 14px 0 rgba(0, 122, 255, 0.39);
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.23);
-}
-
-/* Header hiện đại với hiệu ứng kính mờ */
-.header {
-  background-color: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  letter-spacing: -1px;
-}
-
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2.5rem; /* Khớp với khoảng cách trong index.css */
+  list-style: none;
+  align-items: center;
 }
 
-.nav-item {
+.nav-links a, .dropbtn {
+  text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--color-text);
+  color: var(--color-text); /* Dùng biến màu chữ chính */
   transition: var(--transition);
   position: relative;
+  padding: 5px 0;
 }
 
-.nav-item:hover {
-  color: var(--color-primary);
-}
-
-/* Hiệu ứng gạch chân hiện đại khi hover */
-.nav-item::after {
+/* Hiệu ứng gạch chân dùng màu Primary */
+.nav-links a::after, .dropbtn::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
   width: 0;
   height: 2px;
+  bottom: -2px;
+  left: 0;
   background-color: var(--color-primary);
   transition: var(--transition);
 }
 
-.nav-item:hover::after {
+.nav-links a:hover, .nav-links a.active, .dropdown:hover .dropbtn {
+  color: var(--color-primary);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after, .dropdown:hover .dropbtn::after {
   width: 100%;
+}
+
+/* Dropdown Menu hiện đại */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: white;
+  min-width: 200px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f8fafc;
+  color: var(--color-primary);
+}
+.app-main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.hero-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  border-radius: var(--radius-lg);
+  padding: 80px 40px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  margin-bottom: 40px;
 }

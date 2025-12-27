@@ -17,7 +17,7 @@ const AlgorithmsPage = () => {
             <h3>{algo.name}</h3>
             <p style={{ color: '#666' }}>{algo.desc}</p>
             <Link 
-              to={`/algorithms/${algo.id}`} 
+              to={`/visualization/${algo.id}`}
               style={{ display: 'inline-block', marginTop: '10px', padding: '8px 16px', backgroundColor: '#1890ff', color: '#fff', textDecoration: 'none', borderRadius: '4px' }}
             >
               Xem trực quan

@@ -1,0 +1,125 @@
+.about-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background-color: #7e7ebe; /* Nền trắng hơi xám nhẹ cực sang */
+  color: #1d1d1f;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.about-label {
+  background: #879fed;
+  color: #4f46e5;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.about-hero h1 {
+  font-size: 3.5rem;
+  margin-top: 20px;
+  color: #111827;
+  letter-spacing: -1px;
+}
+
+/* Grid Layout */
+.about-grid-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.about-card-large {
+  background: #f8f0f0;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Đổ bóng cực nhẹ */
+  border: 1px solid #f3f4f6;
+  transition: transform 0.3s ease;
+}
+
+.about-card-large:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+}
+
+.card-icon.blue { background: #eff6ff; color: #3b82f6; }
+.card-icon.yellow { background: #fefce8; color: #ca8a04; }
+
+/* Status List */
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.status-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.dot.blue { background: #3b82f6; }
+.dot.red { background: #ef4444; }
+.dot.green { background: #10b981; }
+
+/* Team Section */
+.team-section {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.member-tag {
+  background: rgb(255, 255, 255);
+  padding: 12px 24px;
+  border-radius: 100px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-name {
+  font-weight: 700;
+  color: #111827;
+}
+
+.member-role {
+  font-size: 0.8rem;
+  color: #6b7280;
+}

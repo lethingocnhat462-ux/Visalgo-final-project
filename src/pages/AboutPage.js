@@ -1,63 +1,65 @@
 import React from 'react';
+import './AboutPage.css';
+import { FaFlag, FaLightbulb, FaUserTie } from 'react-icons/fa';
 
 const AboutPage = () => {
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
-        <h1 style={styles.mainTitle}>Về dự án Vis-Algo 🚀</h1>
-        <p style={styles.subtitle}>
-          Công cụ trực quan hóa thuật toán giúp việc học lập trình trở nên sinh động và dễ dàng hơn.
-        </p>
-      </header>
-
-      <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>✨ Mục tiêu dự án</h2>
-        <p style={styles.text}>
-          Dự án được phát triển bởi Nhóm 4 nhằm giải quyết khó khăn trong việc hiểu các thuật toán sắp xếp trừu tượng. 
-          Bằng cách sử dụng màu sắc và chuyển động, người học có thể quan sát từng bước xử lý dữ liệu thực tế.
-        </p>
+    <div className="about-wrapper">
+      <section className="about-hero">
+        <span className="about-label">Knowledge Base</span>
+        <h1>Khám phá Vis-Algo</h1>
+        <p>Hành trình trực quan hóa giúp mọi thuật toán trở nên đơn giản hơn bao giờ hết.</p>
       </section>
 
-      <div style={styles.grid}>
-        <div style={styles.card}>
-          <h3>🔵 Trạng thái mặc định</h3>
-          <p>Các phần tử đang chờ được xử lý trong mảng.</p>
+      <div className="about-grid-main">
+        {/* Khối Mục tiêu */}
+        <div className="about-card-large">
+          <div className="card-icon blue"><FaFlag /></div>
+          <h2>Tầm nhìn dự án</h2>
+          <p>Được xây dựng bởi Nhóm 4, dự án tập trung vào việc xóa bỏ rào cản giữa lý thuyết khô khan và thực hành trực quan. Chúng tôi tin rằng hình ảnh hóa là chìa khóa để nắm vững tư duy lập trình.</p>
         </div>
-        <div style={styles.card}>
-          <h3>🔴 Đang xử lý</h3>
-          <p>Các phần tử đang được so sánh hoặc hoán đổi vị trí (Red/Orange).</p>
-        </div>
-        <div style={styles.card}>
-          <h3>🟢 Đã hoàn thành</h3>
-          <p>Các phần tử đã nằm đúng vị trí cuối cùng trong mảng đã sắp xếp.</p>
+
+        {/* Khối Ý nghĩa màu sắc */}
+        <div className="about-card-large">
+          <div className="card-icon yellow"><FaLightbulb /></div>
+          <h2>Quy ước trạng thái</h2>
+          <div className="status-list">
+            <div className="status-item">
+              <span className="dot blue"></span>
+              <div><strong>Mặc định:</strong> Các phần tử đang chờ xử lý.</div>
+            </div>
+            <div className="status-item">
+              <span className="dot red"></span>
+              <div><strong>Xử lý:</strong> Đang so sánh/hoán đổi.</div>
+            </div>
+            <div className="status-item">
+              <span className="dot green"></span>
+              <div><strong>Hoàn thành:</strong> Đã về đúng vị trí.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <section style={styles.section}>
-        <h2 style={styles.sectionTitle}>👥 Đội ngũ phát triển</h2>
-        <ul style={styles.list}>
-          <li><strong>Ngọc Nhất:</strong> Trưởng nhóm, Kiểm thử & Logic thuật toán.</li>
-          <li><strong>Như Quỳnh:</strong> Phát triển UI Component & Logic điều khiển.</li>
-          <li><strong>Hồng Phương:</strong> Điều hướng, Tài liệu & Quản lý nội dung.</li>
-          <li><strong>Mỹ Diệu:</strong> Thiết kế Global Styles,Xây dựng Thanh Header.</li>
-          <li><strong>Thanh Thuận:</strong> Code Logic 3 Thuật toán.</li>
-        </ul>
+      {/* Đội ngũ phát triển */}
+      <section className="team-section">
+        <h2><FaUserTie /> Đội ngũ thực hiện</h2>
+        <div className="team-container">
+          {[
+            {n: "Ngọc Nhất", r: "Trưởng nhóm & Logic"},
+            {n: "Như Quỳnh", r: "Phát triển UI"},
+            {n: "Hồng Phương", r: "Tài liệu & Content"},
+            {n: "Mỹ Diệu", r: "Global Styles & Header"},
+            {n: "Thanh Thuận", r: "Logic Thuật toán"}
+          ].map((m, i) => (
+            <div key={i} className="member-tag">
+              <span className="member-name">{m.n}</span>
+              <span className="member-role">{m.r}</span>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
-};
-
-const styles = {
-  container: { maxWidth: '900px', margin: '0 auto', padding: '40px 20px', fontFamily: 'Arial, sans-serif', color: '#2c3e50', lineHeight: '1.6' },
-  header: { textAlign: 'center', marginBottom: '50px' },
-  mainTitle: { fontSize: '2.5rem', color: '#3498db', marginBottom: '10px' },
-  subtitle: { fontSize: '1.2rem', color: '#7f8c8d' },
-  section: { marginBottom: '40px' },
-  sectionTitle: { borderBottom: '2px solid #3498db', display: 'inline-block', paddingBottom: '5px', marginBottom: '15px' },
-  text: { fontSize: '1.1rem' },
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '50px' },
-  card: { padding: '20px', borderRadius: '10px', backgroundColor: '#f9f9f9', border: '1px solid #eee', textAlign: 'center' },
-  list: { listStyleType: 'none', padding: 0, fontSize: '1.1rem' }
 };
 
 export default AboutPage;

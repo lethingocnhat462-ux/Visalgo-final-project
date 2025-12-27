@@ -7,63 +7,62 @@ const Bar = ({ value, status, maxValue }) => {
     return '';
   };
 
-  // 1. Đảm bảo maxValue luôn chuẩn
   const safeMaxValue = maxValue && maxValue > 0 ? maxValue : 100;
-
-  // 2. Kỹ thuật Scaling để tạo chênh lệch rõ rệt:
-  // Thay vì (value / safeMaxValue), ta dùng bình phương tỷ lệ này.
-  // Điều này khiến số lớn cực kỳ cao và số nhỏ cực kỳ thấp.
   const ratio = value / safeMaxValue;
-  const scaledRatio = Math.pow(ratio, 1.5); // Bạn có thể chỉnh 1.5 lên 2 để chênh lệch mạnh hơn nữa
+  const scaledRatio = Math.pow(ratio, 1.5); 
 
-  // 3. Tính toán heightPercent cuối cùng (tối đa 85%, tối thiểu 8% để nhìn thấy cột)
-  const heightPercent = Math.max(scaledRatio * 85, 8); 
+  // Tăng chiều cao tối đa lên 90% để tận dụng không gian
+  const heightPercent = Math.max(scaledRatio * 90, 8); 
 
   return (
-  <div className="bar-wrapper" style={{ 
-    display: 'flex', 
-    flexDirection: 'column', 
-    alignItems: 'center', 
-    justifyContent: 'flex-end', // QUAN TRỌNG: Đẩy thanh bar xuống đáy wrapper
-    height: '100%', 
-    flex: 1, 
-    padding: '0 2px'
-  }}> 
-    <div 
-      className={`bar ${getStatusClass()}`} 
-      style={{ 
-        height: `${heightPercent}%`, 
-        transition: 'height 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
-        width: '100%',
-        position: 'relative',
-        borderRadius: '4px 4px 0 0'
-      }}
-    >
-      {/* Giá trị trên đầu cột */}
-      <span className="value-top" style={{ 
-        position: 'absolute', 
-        top: '-25px', 
-        width: '100%', 
-        textAlign: 'center', 
-        color: '#60a5fa', 
-        fontSize: '0.8rem',
-        fontWeight: 'bold'
+    <div className="bar-wrapper" style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      justifyContent: 'flex-end', 
+      height: '100%', 
+      flex: 1,
+      position: 'relative', // Để định vị số trên đầu chuẩn hơn
+      paddingBottom: '30px' // Tạo khoảng trống cố định cho số dưới chân
+    }}> 
+      <div 
+        className={`bar ${getStatusClass()}`} 
+        style={{ 
+          height: `${heightPercent}%`, 
+          transition: 'height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', // Hiệu ứng nảy (elastic) nhẹ
+          width: '100%',
+          position: 'relative',
+          borderRadius: '6px 6px 2px 2px'
+        }}
+      >
+        {/* Giá trị trên đầu cột - Dùng absolute để không chiếm diện tích thực */}
+        <span className="value-top" style={{ 
+          position: 'absolute', 
+          top: '-25px', 
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '100%', 
+          textAlign: 'center', 
+          color: '#3b82f6', 
+          fontSize: '0.85rem',
+          fontWeight: '700'
+        }}>
+          {value}
+        </span>
+      </div>
+      
+      {/* Giá trị dưới chân cột - Cố định vị trí */}
+      <span className="value-bottom" style={{ 
+        position: 'absolute',
+        bottom: '5px',
+        fontWeight: '600', 
+        color: '#64748b', 
+        fontSize: '0.75rem'
       }}>
         {value}
       </span>
     </div>
-    
-    {/* Giá trị dưới chân cột */}
-    <span className="value-bottom" style={{ 
-      marginTop: '8px', 
-      fontWeight: '500', 
-      color: '#94a3b8', 
-      fontSize: '0.75rem',
-      flexShrink: 0 // Đảm bảo text không bị mất khi cột quá cao
-    }}>
-      {value}
-    </span>
-  </div>
-);
-}
+  );
+};
+
 export default Bar;

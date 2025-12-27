@@ -6,8 +6,10 @@ import { insertionSortSteps } from '../algorithms/insertionSort';
 import { mergeSortSteps } from '../algorithms/mergeSort';
 import './VisualizationPage.css'; 
 import { ALGO_INFO } from '../constants/algorithmData';
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import RaceMode from './RaceMode'; 
 
-// Component con hiển thị Độ phức tạp
+// --- Component con hiển thị Độ phức tạp ---
 const ComplexityCard = ({ algoKey }) => {
   const info = ALGO_INFO[algoKey] || ALGO_INFO.bubble;
   return (
@@ -23,15 +25,15 @@ const ComplexityCard = ({ algoKey }) => {
   );
 };
 
-// Component con hiển thị Mã giả
+// --- Component con hiển thị Mã giả ---
 const PseudocodeCard = ({ algoKey }) => {
   const info = ALGO_INFO[algoKey] || ALGO_INFO.bubble;
   return (
     <div className="pseudocode-card">
-      <h3>💻 Mã giả (Pseudocode)</h3>
+      <h3 className="card-title">💻 Mã giả (Pseudocode)</h3>
       <div className="code-container">
         {info.pseudocode?.map((line, index) => (
-          <div key={index} className="code-line">
+          <div key={index} className="code-row">
             <span className="line-number">{index + 1}</span>
             <pre className="code-text">{line}</pre>
           </div>
@@ -43,6 +45,8 @@ const PseudocodeCard = ({ algoKey }) => {
 
 export default function VisualizationPage() {
   const { algo } = useParams(); 
+  
+  // States chính
   const [inputArray, setInputArray] = useState("45, 20, 80, 50, 10, 30, 90, 60");
   const [array, setArray] = useState([45, 20, 80, 50, 10, 30, 90, 60]);
   const [steps, setSteps] = useState([]);
@@ -50,6 +54,12 @@ export default function VisualizationPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(400); 
   
+  // --- QUAN TRỌNG: State này phải nằm TRONG function ---
+  const [isRaceMode, setIsRaceMode] = useState(false);
+
+  const [aiResponse, setAiResponse] = useState("");
+  const [isLoadingAI, setIsLoadingAI] = useState(false);
+
   const intervalRef = useRef(null);
   const maxValue = array.length > 0 ? Math.max(...array) : 100;
 
@@ -100,59 +110,70 @@ export default function VisualizationPage() {
   return (
     <div className="visual-page">
       <div className="bg-overlay"></div>
+      
       <div className="content-container">
-        <h1 className="algo-display-title">Thuật toán: {algo?.toUpperCase()}</h1>
-
-        <div className="toolbar-card">
-          <div className="input-group">
-            <span className="label-text">Mảng:</span>
-            <input
-              value={inputArray}
-              onChange={(e) => setInputArray(e.target.value)}
-              className="styled-input"
-            />
-          </div>
-
-          <div className="speed-group">
-            <span className="label-text">Tốc độ: {speed}ms</span>
-            <input 
-              type="range" min="50" max="1500" step="50"
-              value={speed} onChange={(e) => setSpeed(Number(e.target.value))}
-              className="speed-slider"
-            />
-          </div>
-          
-          <div className="button-group">
-            <button onClick={handleStart} className="btn-init">Khởi tạo</button>
+        {/* Nút Race Mode đã được đưa vào Header để dễ ấn hơn */}
+        <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <h1 className="algo-display-title" style={{ margin: 0 }}>Thuật toán: {algo?.toUpperCase()}</h1>
             <button 
-              onClick={() => setIsPlaying(!isPlaying)} 
-              className={`btn-run ${isPlaying ? 'playing' : ''}`}
+                onClick={() => setIsRaceMode(!isRaceMode)} 
+                className="btn-toggle-mode"
+                style={{ zIndex: 10, cursor: 'pointer', padding: '10px 20px' }}
             >
-              {isPlaying ? "Tạm dừng" : "Bắt đầu chạy"}
+                {isRaceMode ? "🔙 Chế độ đơn" : "🏁 Chế độ đua (Race Mode)"}
             </button>
-          </div>
         </div>
 
-        <div className="visual-box">
-          {array.map((value, index) => {
-            let status = "default";
-            const isActive = currentData.indices?.includes(index);
-            if (isActive) status = currentData.status; 
-            if (currentData.sortedIndices?.includes(index)) status = "sorted";
-            return <Bar key={index} value={value} status={status} maxValue={maxValue} />;
-          })}
-        </div>
+        {isRaceMode ? (
+          <RaceMode inputArray={inputArray} speed={speed} />
+        ) : (
+          <>
+            <div className="toolbar-card">
+              <div className="input-group">
+                <span className="label-text">Mảng:</span>
+                <input
+                  value={inputArray}
+                  onChange={(e) => setInputArray(e.target.value)}
+                  className="styled-input"
+                />
+              </div>
+              <div className="speed-group">
+                <span className="label-text">Tốc độ: {speed}ms</span>
+                <input 
+                  type="range" min="50" max="1500" step="50"
+                  value={speed} onChange={(e) => setSpeed(Number(e.target.value))}
+                  className="speed-slider"
+                />
+              </div>
+              <div className="button-group">
+                <button onClick={handleStart} className="btn-init">Khởi tạo</button>
+                <button onClick={() => setIsPlaying(!isPlaying)} className={`btn-run ${isPlaying ? 'playing' : ''}`}>
+                  {isPlaying ? "Tạm dừng" : "Bắt đầu chạy"}
+                </button>
+              </div>
+            </div>
 
-        <div className="step-description-card">
-          <span className="emoji">💡</span>
-          <p>{currentData.description || "Nhập mảng và nhấn Bắt đầu để khám phá thuật toán"}</p>
-        </div>
+            <div className="visual-box">
+              {array.map((value, index) => {
+                let status = "default";
+                const isActive = currentData.indices?.includes(index);
+                if (isActive) status = currentData.status; 
+                if (currentData.sortedIndices?.includes(index)) status = "sorted";
+                return <Bar key={index} value={value} status={status} maxValue={maxValue} />;
+              })}
+            </div>
 
-        {/* HIỂN THỊ MÃ GIẢ VÀ ĐỘ PHỨC TẠP */}
-        <div className="info-section">
-           <PseudocodeCard algoKey={algo} />
-           <ComplexityCard algoKey={algo} />
-        </div>
+            <div className="step-description-card">
+              <span className="emoji">💡</span>
+              <p>{currentData.description || "Nhập mảng và nhấn Bắt đầu để khám phá thuật toán"}</p>
+            </div>
+
+            <div className="info-section">
+               <PseudocodeCard algoKey={algo} />
+               <ComplexityCard algoKey={algo} />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
