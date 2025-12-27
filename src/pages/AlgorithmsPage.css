@@ -4,7 +4,10 @@
   margin: 0 auto;
   padding: 80px 20px;
   font-family: 'Inter', sans-serif;
-  color: #1a1a1a;
+  background-color: #8ba4e3;
+  border-radius: 30px;      /* Bo góc cho toàn bộ khối nội dung */
+  color: white;             /* Chuyển chữ chính sang màu trắng */
+  min-height: 100vh;
 }
 
 /* Phần tiêu đề */
@@ -28,13 +31,13 @@
   font-size: 3rem;
   font-weight: 800;
   margin: 20px 0;
-  background: linear-gradient(90deg, #1a1a1a, #0070f3);
+  background: linear-gradient(90deg, #0e0e0ea2, #1371eb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .algo-page-subtitle {
-  color: #666;
+  color: #151212;
   font-size: 1.1rem;
 }
 
@@ -85,7 +88,7 @@
 }
 
 .algo-glass-card p {
-  color: #666;
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 30px;
   flex-grow: 1;
