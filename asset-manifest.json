@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Visalgo-final-project/static/css/main.f69c851f.css",
-    "main.js": "/Visalgo-final-project/static/js/main.43d55a18.js",
+    "main.css": "/Visalgo-final-project/static/css/main.04455c05.css",
+    "main.js": "/Visalgo-final-project/static/js/main.8eaf0686.js",
     "static/js/453.2f83454f.chunk.js": "/Visalgo-final-project/static/js/453.2f83454f.chunk.js",
     "static/media/logo.png": "/Visalgo-final-project/static/media/logo.785a499f1efc59378321.png",
     "index.html": "/Visalgo-final-project/index.html",
-    "main.f69c851f.css.map": "/Visalgo-final-project/static/css/main.f69c851f.css.map",
-    "main.43d55a18.js.map": "/Visalgo-final-project/static/js/main.43d55a18.js.map",
+    "main.04455c05.css.map": "/Visalgo-final-project/static/css/main.04455c05.css.map",
+    "main.8eaf0686.js.map": "/Visalgo-final-project/static/js/main.8eaf0686.js.map",
     "453.2f83454f.chunk.js.map": "/Visalgo-final-project/static/js/453.2f83454f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f69c851f.css",
-    "static/js/main.43d55a18.js"
+    "static/css/main.04455c05.css",
+    "static/js/main.8eaf0686.js"
   ]
 }
