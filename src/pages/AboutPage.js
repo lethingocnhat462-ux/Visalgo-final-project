@@ -3,8 +3,18 @@ import './AboutPage.css';
 import { FaFlag, FaLightbulb, FaUserTie } from 'react-icons/fa';
 
 const AboutPage = () => {
+  const teamMembers = [
+    { n: "Ngọc Nhất", r: "Trưởng nhóm & Logic", img: "/images/nhat.png" },
+    { n: "Như Quỳnh", r: "Phát triển UI", img: "/images/quynh.png" },
+    { n: "Hồng Phương", r: "Tài liệu & Content", img: "/images/phuong.png" },
+    { n: "Mỹ Diệu", r: "Global Styles & Header", img: "/images/dieu.png" },
+    { n: "Thanh Thuận", r: "Logic Thuật toán", img: "/images/thuan.png" }
+  ];
   return (
     <div className="about-wrapper">
+      <div className="glow-circle blue-glow"></div>
+      <div className="glow-circle purple-glow"></div>
+
       <section className="about-hero">
         <span className="about-label">Knowledge Base</span>
         <h1>Khám phá Vis-Algo</h1>
@@ -12,14 +22,12 @@ const AboutPage = () => {
       </section>
 
       <div className="about-grid-main">
-        {/* Khối Mục tiêu */}
         <div className="about-card-large">
           <div className="card-icon blue"><FaFlag /></div>
           <h2>Tầm nhìn dự án</h2>
           <p>Được xây dựng bởi Nhóm 4, dự án tập trung vào việc xóa bỏ rào cản giữa lý thuyết khô khan và thực hành trực quan. Chúng tôi tin rằng hình ảnh hóa là chìa khóa để nắm vững tư duy lập trình.</p>
         </div>
 
-        {/* Khối Ý nghĩa màu sắc */}
         <div className="about-card-large">
           <div className="card-icon yellow"><FaLightbulb /></div>
           <h2>Quy ước trạng thái</h2>
@@ -40,20 +48,18 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Đội ngũ phát triển */}
       <section className="team-section">
         <h2><FaUserTie /> Đội ngũ thực hiện</h2>
         <div className="team-container">
-          {[
-            {n: "Ngọc Nhất", r: "Trưởng nhóm & Logic"},
-            {n: "Như Quỳnh", r: "Phát triển UI"},
-            {n: "Hồng Phương", r: "Tài liệu & Content"},
-            {n: "Mỹ Diệu", r: "Global Styles & Header"},
-            {n: "Thanh Thuận", r: "Logic Thuật toán"}
-          ].map((m, i) => (
+          {teamMembers.map((m, i) => (
             <div key={i} className="member-tag">
-              <span className="member-name">{m.n}</span>
-              <span className="member-role">{m.r}</span>
+              <div className="member-avatar">
+                <img src={m.img} alt={m.n} />
+              </div>
+              <div className="member-info">
+                <span className="member-name">{m.n}</span>
+                <span className="member-role">{m.r}</span>
+              </div>
             </div>
           ))}
         </div>
