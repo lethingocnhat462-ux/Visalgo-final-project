@@ -1,13 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
-// Dòng này sẽ lấy file ảnh bạn vừa bỏ vào thư mục components
+import { useTranslation } from 'react-i18next';
 import logoImg from './logo.png'; 
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <header className="main-header">
-      {/* Nhóm logo và chữ vào một div để dễ căn chỉnh */}
       <div className="logo-wrapper">
         <img src={logoImg} alt="Logo" className="nav-logo" />
         <span className="logo-text">Vis Algo</span>
@@ -15,16 +20,33 @@ const Header = () => {
 
       <nav className="nav-container">
         <ul className="nav-links">
-          <li><NavLink to="/" end>Homepage</NavLink></li>
+          <li><NavLink to="/" end>{t('nav_home')}</NavLink></li>
           <li className="dropdown">
-            <span className="dropbtn">Algorithms ▼</span>
+            <span className="dropbtn">{t('nav_algo')} ▼</span>
             <div className="dropdown-menu">
-              <NavLink to="/algorithms/bubble">Bubble Sort</NavLink>
-              <NavLink to="/algorithms/insertion">Insertion Sort</NavLink>
-              <NavLink to="/algorithms/merge">Merge Sort</NavLink>
+              <NavLink to="/algorithms/bubble">{t('bubble_sort')}</NavLink>
+              <NavLink to="/algorithms/insertion">{t('insertion_sort')}</NavLink>
+              <NavLink to="/algorithms/merge">{t('merge_sort')}</NavLink>
             </div>
           </li>
-          <li><NavLink to="/about">Introduction</NavLink></li>
+          <li><NavLink to="/about">{t('nav_team')}</NavLink></li>
+          
+          {/* Nút chuyển ngôn ngữ nằm gọn bên phải cùng hàng với Menu */}
+          <div className="lang-switcher">
+            <button 
+              className={i18n.language === 'vi' ? 'active' : ''} 
+              onClick={() => changeLanguage('vi')}
+            >
+              VI
+            </button>
+            <span className="divider">|</span>
+            <button 
+              className={i18n.language === 'en' ? 'active' : ''} 
+              onClick={() => changeLanguage('en')}
+            >
+              EN
+            </button>
+          </div>
         </ul>
       </nav>
     </header>

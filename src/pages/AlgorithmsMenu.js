@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AlgorithmsMenu.css';
+import { useTranslation } from 'react-i18next';
 
 const AlgorithmsMenu = () => {
   const algorithms = [
-    { id: 'bubbleSort', name: 'Bubble Sort', description: 'Sắp xếp nổi bọt' },
-    { id: 'insertionSort', name: 'Insertion Sort', description: 'Sắp xếp chèn' },
-    { id: 'mergeSort', name: 'Merge Sort', description: 'Sắp xếp trộn' }
+    { id: 'bubbleSort', name: 'Bubble Sort', description: 'Repeatedly swaps adjacent elements if they are in the wrong order until the array is sorted.' },
+    { id: 'insertionSort', name: 'Insertion Sort', description: 'Builds a sorted array one element at a time by inserting each new item into its proper place.' },
+    { id: 'mergeSort', name: 'Merge Sort', description: 'A divide-and-conquer algorithm that splits the array in half, sorts them, and merges them back' }
   ];
 
   return (

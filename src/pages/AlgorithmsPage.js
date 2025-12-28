@@ -9,9 +9,24 @@ const AlgorithmsPage = () => {
 
   // 3. Cập nhật mảng algos để dùng hàm t cho phần mô tả
   const algos = [
-    { id: 'bubble', name: 'Bubble Sort', desc: t('bubble_sort'), icon: <FaLayerGroup /> },
-    { id: 'insertion', name: 'Insertion Sort', desc: t('insertion_sort'), icon: <FaSortAmountUp /> },
-    { id: 'merge', name: 'Merge Sort', desc: t('merge_sort'), icon: <FaMagic /> }
+    { 
+      id: 'bubble', 
+      name: t('bubble_sort'), // Dùng t() cho cả tên để nó dịch sang tiếng Việt
+      desc: t('bubble_sort_desc'), // Thêm _desc để hiện mô tả
+      icon: <FaLayerGroup /> 
+    },
+    { 
+      id: 'insertion', 
+      name: t('insertion_sort'), 
+      desc: t('insertion_sort_desc'), 
+      icon: <FaSortAmountUp /> 
+    },
+    { 
+      id: 'merge', 
+      name: t('merge_sort'), 
+      desc: t('merge_sort_desc'), 
+      icon: <FaMagic /> 
+    }
   ];
 
   return (

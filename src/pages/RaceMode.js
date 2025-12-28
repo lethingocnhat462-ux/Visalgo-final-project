@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Visualizer from '../components/Visualizer'; // Sử dụng lại Component Visualizer bạn đã có
 import { bubbleSortSteps } from '../algorithms/bubbleSort';
 import { insertionSortSteps } from '../algorithms/insertionSort';
+import { useTranslation } from 'react-i18next';
 
 
 const RaceMode = ({ inputArray }) => {

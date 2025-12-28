@@ -127,3 +127,48 @@
   background: #f1f5f9;
   color: #4f46e5;
 }
+/* Container bên phải chứa menu và nút ngôn ngữ */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Style cho bộ chuyển ngôn ngữ */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  margin-left: 10px;
+}
+
+.lang-switcher button {
+  background: none;
+  border: none;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 2px 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+/* Hiệu ứng khi nút được chọn */
+.lang-switcher button.active {
+  color: #7d5fff; /* Màu tím chủ đạo của bạn */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.lang-switcher button:hover {
+  color: #7d5fff;
+}
+
+.lang-switcher .divider {
+  color: #ccc;
+  margin: 0 4px;
+  font-size: 12px;
+}

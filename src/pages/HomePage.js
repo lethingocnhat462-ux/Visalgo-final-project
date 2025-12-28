@@ -1,28 +1,18 @@
+import React from 'react'; // Đảm bảo có import React
 import { Link } from "react-router-dom";
 import "./HomePage.css";
 import { FaEye, FaChartBar, FaUserGraduate, FaRocket } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 
 function HomePage() {
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+  const { t } = useTranslation();
 
   return (
     <div className="home">
-      {/* Thanh chuyển đổi ngôn ngữ cố định góc màn hình hoặc trong card */}
-      <div className="lang-switch-container">
-        <button className={i18n.language === 'vi' ? 'active' : ''} onClick={() => changeLanguage('vi')}>VI</button>
-        <button className={i18n.language === 'en' ? 'active' : ''} onClick={() => changeLanguage('en')}>EN</button>
-      </div>
-
       <section className="hero">
         <div className="glow-bg"></div>
         
         <div className="hero-content">
-          {/* Phần giới thiệu đa ngôn ngữ */}
           <div className="intro-top">
             <div className="intro-badge">{t('about_badge')}</div>
             <h2 className="intro-title-new">{t('title')}</h2>
@@ -51,11 +41,13 @@ function HomePage() {
           <h3>{t('feat_1_title')}</h3>
           <p>{t('feat_1_desc')}</p>
         </div>
+
         <div className="feature-card">
           <div className="icon-box"><FaChartBar size={28} /></div>
           <h3>{t('feat_2_title')}</h3>
           <p>{t('feat_2_desc')}</p>
         </div>
+
         <div className="feature-card">
           <div className="icon-box"><FaUserGraduate size={28} /></div>
           <h3>{t('feat_3_title')}</h3>

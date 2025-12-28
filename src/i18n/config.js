@@ -13,60 +13,101 @@ i18n
     resources: {
       en: {
         translation: {
-          // --- THANH ĐIỀU HƯỚNG (NAVBAR) ---
           "nav_home": "Home",
           "nav_algo": "Algorithms",
           "nav_team": "Our Team",
-
-          // --- TRANG CHỦ (HOMEPAGE) ---
-          "about_badge": "About Project",
+          "about_badge": "ABOUT PROJECT",
           "title": "What is Vis Algo?",
           "description": "An interactive learning platform that turns complex algorithms into vivid visual experiences.",
           "hero_title": "Visualize Sorting Algorithms",
           "hero_subtitle": "Master sorting logic through step-by-step simulations.",
           "get_started": "Get Started",
+          "role_leader": "Project Leader",
+          "role_ui": "Development UI",
+          "role_content": "Documentaries & Content",
+          "role_styles": "Styles & Header",
+          "role_algo_logic": "Logic Algorithms",
+          
 
-          // --- TÍNH NĂNG (FEATURES) ---
+        "about_hero_title": "Explore Vis-Algo",
+        "about_hero_subtitle": "A streamlined and efficient approach to visualizing algorithms.",
+        "vision_title": "Strategic Vision",
+        "vision_desc": "Removing the barriers between dry theory and visual practice.",
+
+        "convention_title": "Convention",
+          // Features
           "feat_1_title": "Easy to Understand",
           "feat_1_desc": "Detailed step-by-step logic illustration.",
           "feat_2_title": "Visual",
           "feat_2_desc": "Clear colors distinguish data states.",
           "feat_3_title": "Friendly",
           "feat_3_desc": "Optimized interface for modern learning.",
-
-          // --- DANH SÁCH THUẬT TOÁN (ALGORITHMS PAGE) ---
+          
+          // Algorithm Names & Descriptions
           "algo_list_title": "Select Algorithm",
+          "bubble": "Bubble Sort",
+          "insertion": "Insertion Sort",
+          "merge": "Merge Sort",
           "bubble_sort": "Bubble Sort",
-          "selection_sort": "Selection Sort",
           "insertion_sort": "Insertion Sort",
-          "quick_sort": "Quick Sort",
           "merge_sort": "Merge Sort",
+          "bubble_sort_desc": "Repeatedly swaps adjacent elements if they are in the wrong order.",
+          "insertion_sort_desc": "Builds a sorted array by inserting each new item into its proper place.",
+          "merge_sort_desc": "Splits the array in half, sorts them, and merges them back together.",
 
-          // --- TRANG MÔ PHỎNG (VISUALIZER PAGE) ---
-          "algo_label": "Algorithm",
-          "race_mode": "RACE MODE",
-          "input_array": "Array",
-          "speed": "Speed",
-          "reset": "Reset",
-          "start": "Start"
+          // Visualization Page Labels
+          "single_mode": "Single Mode",
+          "race_mode": "Race Mode",
+          "array_label": "Array",
+          "speed_label": "Speed",
+          "init_guide_text": "Enter the array and click Initial value to start.",
+          "start": "Start run",
+          "stop": "Stop",
+          "restart": "Initial value",
+
+          // Complexity & Pseudocode
+          "pseudocode_title": "Pseudocode",
+          "complexity_title": "Complexity Analysis",
+          "worst_case": "Worst Case",
+          "best_case": "Best Case",
+          "space_complexity": "Space Complexity",
+          "bubble_desc_detail": "Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.",
+          "insertion_desc_detail": "Insertion Sort builds the final sorted array one item at a time, with the benefit of being efficient for small data sets.",
+          "merge_desc_detail": "Merge Sort is an efficient, stable, divide-and-conquer sorting algorithm.",
+
+          // About & Team (giữ nguyên các key của bạn...)
+          "about_label": "Knowledge Base",
+          "status_default": "Default: Waiting",
+          "status_progress": "In Progress: Comparison and Swapping",
+          "status_finished": "Finished: Done",
+          "our_team_title": "Our Team"
         }
       },
       vi: {
         translation: {
-          // --- THANH ĐIỀU HƯỚNG (NAVBAR) ---
           "nav_home": "Trang chủ",
           "nav_algo": "Thuật toán",
           "nav_team": "Thành viên",
-
-          // --- TRANG CHỦ (HOMEPAGE) ---
-          "about_badge": "Về dự án",
+          "about_badge": "VỀ DỰ ÁN",
           "title": "Vis Algo là gì?",
           "description": "Nền tảng học tập tương tác, biến các thuật toán phức tạp thành trải nghiệm hình ảnh sinh động.",
-          "hero_title": "Trực Quan Hóa Thuật Toán Sắp Sếp",
+          "hero_title": "Trực Quan Hóa Thuật Toán Sắp Xếp",
           "hero_subtitle": "Giúp bạn nắm vững logic sắp xếp thông qua mô phỏng từng bước rõ ràng.",
           "get_started": "Bắt đầu ngay",
 
-          // --- TÍNH NĂNG (FEATURES) ---
+          "role_leader": "Trưởng nhóm & Logic",
+          "role_ui": "Phát triển giao diện",
+          "role_content": "Tài liệu & Nội dung",
+          "role_styles": "Thiết kế Styles",
+          "role_algo_logic": "Logic thuật toán",
+
+          "about_hero_title": "Khám phá Vis-Algo",
+          "about_hero_subtitle": "Cách tiếp cận tinh gọn và hiệu quả để trực quan hóa thuật toán.",
+          "vision_title": "Tầm nhìn chiến lược",
+          "vision_desc": "Loại bỏ rào cản giữa lý thuyết khô khan và thực hành trực quan.",
+
+          "convention_title": "Quy ước màu sắc",
+
           "feat_1_title": "Dễ hiểu",
           "feat_1_desc": "Minh họa logic từng bước một cách chi tiết.",
           "feat_2_title": "Trực quan",
@@ -74,21 +115,42 @@ i18n
           "feat_3_title": "Thân thiện",
           "feat_3_desc": "Giao diện tối ưu cho trải nghiệm học tập hiện đại.",
 
-          // --- DANH SÁCH THUẬT TOÁN (ALGORITHMS PAGE) ---
-          "algo_list_title": "Chọn thuật toán",
+          "algo_list_title": "Danh sách thuật toán",
+          "bubble": "Sắp xếp nổi bọt",
+          "insertion": "Sắp xếp chèn",
+          "merge": "Sắp xếp trộn",
           "bubble_sort": "Sắp xếp nổi bọt",
-          "selection_sort": "Sắp xếp chọn",
           "insertion_sort": "Sắp xếp chèn",
-          "quick_sort": "Sắp xếp nhanh",
           "merge_sort": "Sắp xếp trộn",
+          "bubble_sort_desc": "Liên tục tráo đổi các phần tử liền kề nếu sai thứ tự cho đến khi mảng được sắp xếp.",
+          "insertion_sort_desc": "Xây dựng mảng đã sắp xếp bằng cách chèn từng phần tử mới vào đúng vị trí.",
+          "merge_sort_desc": "Chia đôi mảng để sắp xếp rồi sau đó trộn chúng lại với nhau.",
 
-          // --- TRANG MÔ PHỎNG (VISUALIZER PAGE) ---
-          "algo_label": "Thuật toán",
-          "race_mode": "CHẾ ĐỘ ĐUA",
-          "input_array": "Mảng",
-          "speed": "Tốc độ",
-          "reset": "Khởi tạo",
-          "start": "Bắt đầu chạy"
+          // Visualization Page Labels
+          "single_mode": "Chế độ đơn",
+          "race_mode": "Chế độ đua",
+          "array_label": "Mảng dữ liệu",
+          "speed_label": "Tốc độ",
+          "init_guide_text": "Nhập mảng và nhấn Khởi tạo để bắt đầu.",
+          "start": "Bắt đầu chạy",
+          "stop": "Dừng lại",
+          "restart": "Khởi tạo",
+
+          // Complexity & Pseudocode
+          "pseudocode_title": "Mã giả",
+          "complexity_title": "Phân tích độ phức tạp",
+          "worst_case": "Trường hợp xấu nhất",
+          "best_case": "Trường hợp tốt nhất",
+          "space_complexity": "Độ phức tạp không gian",
+          "bubble_desc_detail": "Sắp xếp nổi bọt là một thuật toán đơn giản, liên tục duyệt qua danh sách, so sánh các cặp phần tử liền kề và tráo đổi chúng nếu sai thứ tự.",
+          "insertion_desc_detail": "Sắp xếp chèn xây dựng mảng được sắp xếp cuối cùng từng phần tử một, có hiệu quả với các tập dữ liệu nhỏ.",
+          "merge_desc_detail": "Sắp xếp trộn là một thuật toán sắp xếp dựa trên kỹ thuật chia để trị, có hiệu suất cao và ổn định.",
+
+          "about_label": "Kho kiến thức",
+          "status_default": "Mặc định: Đang chờ",
+          "status_progress": "Đang thực hiện: So sánh và Tráo đổi",
+          "status_finished": "Hoàn thành: Xong",
+          "our_team_title": "Đội ngũ của chúng tôi"
         }
       }
     }
