@@ -59,18 +59,35 @@ const AboutPage = () => {
         <h2 className="team-title"><FaUserTie /> Our Team </h2>
         {/* Container quan trọng để chia hàng 3 trên - 2 dưới */}
         <div className="team-grid-layout">
-          {teamMembers.map((m, i) => (
-            <div key={i} className="member-mini-card">
-              <div className="member-logo-wrapper">
-                <img src={m.img} alt={m.n} className="member-logo-img" />
-              </div>
-              <div className="member-mini-info">
-                <span className="mini-name">{m.n}</span>
-                <span className="mini-role">{m.r}</span>
-              </div>
-            </div>
-          ))}
+  {/* 3 CARD HÀNG TRÊN */}
+  {teamMembers.slice(0, 3).map((m, i) => (
+    <div key={i} className="member-mini-card">
+      <div className="member-logo-wrapper">
+        <img src={m.img} alt={m.n} className="member-logo-img" />
+      </div>
+      <div className="member-mini-info">
+        <span className="mini-name">{m.n}</span>
+        <span className="mini-role">{m.r}</span>
+      </div>
+    </div>
+  ))}
+
+  {/* 2 CARD HÀNG DƯỚI – CĂN GIỮA */}
+  <div className="team-row-center">
+    {teamMembers.slice(3).map((m, i) => (
+      <div key={i} className="member-mini-card">
+        <div className="member-logo-wrapper">
+          <img src={m.img} alt={m.n} className="member-logo-img" />
         </div>
+        <div className="member-mini-info">
+          <span className="mini-name">{m.n}</span>
+          <span className="mini-role">{m.r}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
       </section>
 </div>
   );

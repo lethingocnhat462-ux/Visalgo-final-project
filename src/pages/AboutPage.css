@@ -140,24 +140,104 @@
 }
 
 .team-grid-layout {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 thẻ mỗi hàng */
+  gap: 30px;
+  max-width: 1050px;
+  margin: 0 auto;
+ 
 }
 
+.team-row-center {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+
+
+
 .member-mini-card {
-  flex: 0 0 180px; 
-  background: white;
-  padding: 25px 15px;
-  border-radius: 20px;
+  background: #ffffff;
+  padding: 35px 20px;
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.team-row-center .member-mini-card {
+  flex: 1;
+  max-width: 280px;
 }
 
+
 .member-mini-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2); /* Đã thêm màu và đóng ngoặc ) */
+}
+.member-logo-wrapper {
+  width: 60px; 
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #3b82f6;
+  margin-bottom: 12px;
+}
+
+.member-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mini-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1e293b;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.mini-role {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 4px;
+  font-weight: 500;
+  display: block; /* Ép vai trò xuống dòng dưới tên */
+  text-align: center;
+}
+
+/* ===== 5. TRẠNG THÁI (STATUS/DOTS) ===== */
+.status-item { 
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 12px; 
+  font-size: 0.95rem; 
+  color: #334155; 
+}
+
+.dot { 
+  width: 10px; 
+  height: 10px; 
+  border-radius: 50%; 
+  display: inline-block; 
+  margin-right: 12px; 
+}
+.dot.blue { background: #3b82f6; } 
+.dot.red { background: #ef4444; } 
+.dot.green { background: #10b981; }
+@media (max-width: 900px) {
+  .team-grid-layout {
+    grid-template-columns: repeat(2, 1fr); /* Tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid-layout {
+    grid-template-columns: 1fr; /* Mobile */
+  }
+}
