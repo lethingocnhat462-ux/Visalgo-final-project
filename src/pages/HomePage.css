@@ -1,323 +1,178 @@
-/* ===== 1. TỔNG THỂ & BIẾN SỐ ===== */
+/* ===== 1. TỔNG THỂ NỀN NAVY SÂU ===== */
 .home {
-  font-family: var(--font-main);
-  background-color: #5874a2;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a; /* Deep Navy chuyên nghiệp */
   color: #ffffff;
-  min-height: 100vh;
-  margin: 0;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* ===== 2. HERO SECTION (NỀN TẢNG) ===== */
+/* ===== 2. HERO SECTION VỚI HIỆU ỨNG CÔNG NGHỆ ===== */
 .hero {
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.12) 0%, transparent 50%),
-    linear-gradient(180deg, #5874a2 0%, #5970a5 100%);
-  padding: 80px 20px 180px; /* Tăng padding bottom để tạo không gian */
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+              linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  padding: 120px 20px 200px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Lưới tọa độ chìm tạo cảm giác không gian 3D */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
   mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
 
-/* CĂN CHỈNH NỘI DUNG HERO */
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px; /* TẠO KHOẢNG CÁCH GIỮA CÁC KHỐI */
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   position: relative;
   z-index: 10;
+  gap: 20px;
 }
 
-/* ===== 3. TRANG TRÍ PHẦN INTRO (VỀ DỰ ÁN) ===== */
+/* ===== 3. KHỐI INTRO (GLASSMORPHISM) ===== */
 .intro-top {
   background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  padding: 30px 40px;
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  max-width: 700px;
-  animation: fadeInDown 0.8s ease-out;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  max-width: 750px;
+  margin: 0 auto;
 }
 
 .intro-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  background: rgba(59, 130, 246, 0.2);
-  color: #eaecf0;
-  border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  padding: 8px 24px;
+  display: inline-block;
+  border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  margin-bottom: 15px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  margin-bottom: 20px;
 }
 
-.intro-title-new {
-  font-size: 2rem !important;
-  color: #ffffff !important;
-  font-weight: 800;
-  margin-bottom: 12px;
+/* Tiêu đề chính khổng lồ - Gradient Xanh Neon */
+.hero-title {
+  font-size: 5.5rem !important;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin: 20px auto !important;
+  background: linear-gradient(to bottom, #ffffff 30%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.5));
 }
 
-.intro-desc-new {
-  color: #e6e8eb !important;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 0;
+.hero-p {
+  font-size: 1.25rem !important;
+  color: #94a3b8 !important;
+  max-width: 800px;
+  margin: 0 auto 30px !important;
 }
 
-/* ===== 4. ĐƯỜNG KẺ PHÂN CÁCH CÔNG NGHỆ ===== */
+/* ===== 4. DIVIDER PHÁT SÁNG (GLOW) ===== */
 .ui-divider {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 15px;
   width: 100%;
   max-width: 400px;
-  margin: 10px 0;
+  margin: 30px auto;
 }
 
 .ui-divider .line {
   flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
 }
 
 .ui-divider .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: #3b82f6;
   border-radius: 50%;
   box-shadow: 0 0 15px #3b82f6;
 }
 
-/* ===== 5. TIÊU ĐỀ CHÍNH ===== */
-.hero-title {
-  font-size: 5.5rem !important;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  background: linear-gradient(to bottom, #ffffff 40%, #778eaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0 !important;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-}
-.hero p {
-  color: #ffffff !important;      /* Ép chữ sang màu trắng sáng */
-  font-size: 1.2rem !important;    /* Kích thước to rõ rệt */
-  font-weight: 500 !important;    /* Chữ dày hơn để dễ đọc trên nền màu */
-  line-height: 1.7 !important;    /* Khoảng cách dòng thoáng */
-  max-width: 900px;               /* Dàn trải chữ rộng hơn */
-  margin: 30px auto 0 !important; /* Căn giữa và tạo khoảng cách với tiêu đề */
-  text-shadow: 0 2px 10px rgba(0,0,0,0.4); /* Đổ bóng đậm hơn để nổi bật chữ */
-  opacity: 1 !important;          /* Hiển thị rõ 100% */
-}
-
-.hero-description {
-  color: #64748b !important;
-  font-size: 1.6rem;
-  max-width: 650px;
-  margin-top: 20px;
-  font-weight: 500 !important;    /* Làm chữ dày hơn để dễ đọc */
-  line-height: 1.6;               /* Khoảng cách dòng vừa phải */
-  max-width: 900px;               /* Cho phép dòng chữ dàn trải rộng hơn */
-  margin: 30px auto 0;            /* Tăng khoảng cách với tiêu đề phía trên */
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Thêm đổ bóng nhẹ để chữ nổi lên nền tím */
-  opacity: 1 !important;
-}
-
-/* ===== 6. NÚT BẤM & TÍNH NĂNG (GIỮ NGUYÊN CSS CỦA BẠN) ===== */
-.cta-btn {
-  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-  color: #ffffff !important;
-  padding: 18px 45px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-}
-
-.cta-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: -80px auto 100px; /* Đẩy thẻ đè lên Hero để bớt rời rạc */
-  padding: 0 20px;
-  position: relative;
-  z-index: 20;
-}
-
-.feature-card {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 40px 30px;
-  border-radius: 24px;
-  transition: all 0.4s ease;
-}
-
-.feature-card:hover {
-  border-color: #3b82f6;
-  transform: translateY(-10px);
-  background: rgba(98, 117, 161, 0.95);
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-/* ===== CHỈNH RIÊNG CHO PHẦN THƯ VIỆN THUẬT TOÁN ===== */
-
-/* 1. Đổi màu nền của toàn bộ vùng này */
-.algorithm-library-section {
-  background-color: #2d4264 !important; /* Màu xanh đen giống trang chủ */
-  padding: 100px 0 !important;
-  color: #ffffff !important;
-}
-
-/* 2. Chỉnh màu cho Badge "Học thuật toán" */
-.algorithm-library-section .learning-badge {
-  background: rgba(59, 130, 246, 0.2) !important;
-  color: #60a5fa !important;
-  border: 1px solid rgba(96, 165, 250, 0.3) !important;
-}
-
-/* 3. Chỉnh màu tiêu đề "Thư viện Thuật toán" */
-.algorithm-library-section .library-title {
-  color: #ffffff !important;
-  font-size: 3.5rem !important;
-  margin-bottom: 20px !important;
-}
-
-/* 4. Chỉnh màu đoạn chữ mô tả "Chọn một thuật toán..." */
-.algorithm-library-section p {
-  color: #cbd5e1 !important; /* Màu xám bạc sáng */
-  text-shadow: none !important;
-  font-size: 1.2rem !important;
-}
-
-/* 5. Chỉnh màu các thẻ Card bên trong Thư viện */
-.algorithm-library-section .feature-card {
-  background: rgba(255, 255, 255, 0.05) !important; /* Nền mờ dạng kính */
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  color: #ffffff !important;
-}
-
-.algorithm-library-section .feature-card h3 {
-  color: #ffffff !important; /* Tên Bubble Sort... màu trắng */
-}
-
-.algorithm-library-section .feature-card .sub-text,
-.algorithm-library-section .feature-card p {
-  color: #94a3b8 !important; /* Chữ "Sắp xếp nổi bọt" màu xám nhạt */
-}
-
-.algorithm-library-section .view-link {
-  color: #60a5fa !important; /* Link "Xem trực quan" màu xanh sáng */
-}
-/* ===== CHỈNH MÀU PHẦN GIỚI THIỆU ===== */
-.intro {
-  background-color: #7e7ebe !important; /* Màu tím chủ đạo như ảnh mẫu */
-  padding: 80px 20px !important;
-  text-align: center;
-  border-radius: 40px; /* Bo góc mượt mà */
-  margin: 40px 20px; /* Tạo khoảng cách với các phần khác */
-  color: #ffffff !important; /* Chữ trắng toàn bộ */
-}
-
-.intro h2 {
-  font-size: 3rem !important;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #ffffff !important;
-}
-
-.intro p {
-  font-size: 1.3rem !important;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #f1f5f9 !important; /* Màu trắng xám nhẹ cho đoạn văn */
-}
-/* ===== CHỈNH MÀU CÁC THẺ ƯU ĐIỂM ===== */
-/* Container bao quanh các card */
+/* ===== 5. CÁC THẺ TÍNH NĂNG (TRẮNG NỔI BẬT) ===== */
 .features {
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 50px 20px;
-  flex-wrap: wrap; /* Hỗ trợ hiển thị trên di động */
+  max-width: 1200px;
+  margin: -100px auto 100px; /* Đè lên phần Hero */
+  padding: 0 20px;
+  position: relative;
+  z-index: 20;
+  flex-wrap: wrap;
 }
 
-/* Style cho từng khung Card */
 .feature-card {
-  background: rgba(20, 19, 25, 0.08); /* Nền hơi trong suốt (Glassmorphism) */
-  border: 1px solid rgba(17, 20, 23, 0.2); /* Viền mảnh */
-  border-radius: 20px;
-  padding: 40px 30px;
-  width: 280px;
+  background: #ffffff !important;
+  color: #1e293b !important;
+  padding: 50px 35px;
+  border-radius: 35px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  min-width: 280px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px); /* Hiệu ứng mờ nền */
-  color: white; /* Chữ màu trắng để nổi trên nền tím của body */
 }
 
-/* Hiệu ứng khi di chuột vào (Hover) */
 .feature-card:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: translateY(-10px); /* Bay lên nhẹ */
-  border-color: #4e8dbe; /* Đổi viền sang màu xanh lá neon (giống ảnh mẫu của bạn) */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px rgba(59, 130, 246, 0.2);
 }
 
-/* Chỉnh màu cho các Icon bên trong */
 .feature-card svg {
+  color: #3b82f6 !important;
+  font-size: 3rem;
   margin-bottom: 20px;
-  color: #f7f8f9; /* Màu icon xanh neon cho nổi bật */
-  transition: transform 0.3s ease;
 }
 
-.feature-card:hover svg {
-  transform: scale(1.1); /* Icon phóng to nhẹ khi hover */
-}
-
-/* Tiêu đề trong card */
 .feature-card h3 {
   font-size: 1.5rem;
+  font-weight: 800;
   margin-bottom: 15px;
-  font-weight: 700;
 }
 
-/* Nội dung mô tả trong card */
-.feature-card p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #e0e0e0; /* Màu chữ trắng mờ cho dịu mắt */
+/* ===== 6. NÚT CTA BẮT ĐẦU NGAY ===== */
+.cta-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: #ffffff !important;
+  padding: 16px 45px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 40px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+  transition: all 0.4s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
+  letter-spacing: 1px;
 }

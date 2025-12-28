@@ -13,7 +13,7 @@ const ComplexityCard = ({ algoKey }) => {
   const info = ALGO_INFO[algoKey] || ALGO_INFO.bubble;
   return (
     <div className="complexity-card-styled">
-      <h3>📊 Phân tích độ phức tạp: {info.name}</h3>
+      <h3>📊 Complexity Analysis: {info.name}</h3>
       <div className="complexity-grid">
         <div className="comp-item"><strong>Worst Case:</strong> <code>{info.worstCase}</code></div>
         <div className="comp-item"><strong>Best Case:</strong> <code>{info.bestCase}</code></div>
@@ -29,7 +29,7 @@ const PseudocodeCard = ({ algoKey }) => {
   const info = ALGO_INFO[algoKey] || ALGO_INFO.bubble;
   return (
     <div className="pseudocode-card">
-      <h3 className="card-title">💻 Mã giả (Pseudocode)</h3>
+      <h3 className="card-title">💻 Pseudocode </h3>
       <div className="code-container">
         {info.pseudocode?.map((line, index) => (
           <div key={index} className="code-row">
@@ -112,12 +112,12 @@ export default function VisualizationPage() {
       
       <div className="content-container">
         <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-            <h1 className="algo-display-title">Thuật toán: {algo?.toUpperCase()}</h1>
+            <h1 className="algo-display-title">Algorithms: {algo?.toUpperCase()}</h1>
             <button 
                 onClick={() => setIsRaceMode(!isRaceMode)} 
                 className={`btn-toggle-mode ${isRaceMode ? 'active' : ''}`}
             >
-                {isRaceMode ? "🔙 Chế độ đơn" : "🏁 Chế độ đua (Race Mode)"}
+                {isRaceMode ? "🔙 Single Mode" : "🏁 Race Mode"}
             </button>
         </div>
 
@@ -127,7 +127,7 @@ export default function VisualizationPage() {
           <>
             <div className="toolbar-card">
               <div className="input-group">
-                <span className="label-text">Mảng:</span>
+                <span className="label-text">Array: </span>
                 <input
                   value={inputArray}
                   onChange={(e) => setInputArray(e.target.value)}
@@ -136,7 +136,7 @@ export default function VisualizationPage() {
                 />
               </div>
               <div className="speed-group">
-                <span className="label-text">Tốc độ: {speed}ms</span>
+                <span className="label-text">Speed: {speed}ms</span>
                 <input 
                   type="range" min="50" max="1500" step="50"
                   value={speed} onChange={(e) => setSpeed(Number(e.target.value))}
@@ -144,13 +144,13 @@ export default function VisualizationPage() {
                 />
               </div>
               <div className="button-group">
-                <button onClick={handleStart} className="btn-init">Khởi tạo</button>
+                <button onClick={handleStart} className="btn-init">Initial value</button>
                 <button 
                   onClick={() => setIsPlaying(!isPlaying)} 
                   className={`btn-run ${isPlaying ? 'playing' : ''}`}
                   disabled={steps.length === 0}
                 >
-                  {isPlaying ? "Tạm dừng" : "Bắt đầu chạy"}
+                  {isPlaying ? "Stop" : "Start run"}
                 </button>
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function VisualizationPage() {
 
             <div className="step-description-card">
               <span className="emoji">💡</span>
-              <p>{currentData.description || "Nhập mảng và nhấn Khởi tạo để bắt đầu"}</p>
+              <p>{currentData.description || "Enter the array and click Initialize to start."}</p>
             </div>
 
             <div className="info-section">

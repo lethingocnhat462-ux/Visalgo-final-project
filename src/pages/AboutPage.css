@@ -1,19 +1,52 @@
-/* NỀN VÀ KHUNG CHÍNH */
+/* ===== 1. KHUNG CHÍNH (NAVY GRADIENT) ===== */
 .about-wrapper {
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  background-color: #6a749a; /* Giữ màu tím chủ đạo của bạn */
-  border-radius: 24px;
+  margin: 40px auto;
+  padding: 60px 30px;
+  /* Kết hợp Gradient tối sang trọng */
+  background: linear-gradient(145deg, #2b3348 0%, #1a202f 100%);
+  border-radius: 32px;
   color: white;
   position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
 }
 
+/* Họa tiết máy tính chìm nghệ thuật */
+.about-wrapper::before {
+  content: "💻";
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  font-size: 25rem;
+  opacity: 0.03;
+  filter: grayscale(1) blur(2px);
+  z-index: 0;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+/* Họa tiết lưới chấm công nghệ */
+.about-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#4f46e5 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== 2. PHẦN TIÊU ĐỀ (HERO) ===== */
 .about-hero {
   text-align: center;
   margin-bottom: 50px;
-  color: #ffffff;
-  line-height: 1.4;
+  position: relative;
+  z-index: 1;
 }
 
 .about-label {
@@ -31,157 +64,100 @@
   margin-top: 20px;
   color: #f8faff;
   letter-spacing: -1px;
+  font-weight: 800;
 }
-/* Chỉnh chữ mô tả dưới tiêu đề */
+
 .about-hero p {
   font-size: 1.25rem;
-  font-weight: 400;
   color: #e2e8f0;
   max-width: 600px;
   margin: 20px auto 0;
-}
-/* Chỉnh cỡ chữ trong các thẻ Card (Tầm nhìn/Quy ước) */
-.about-card-large h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
-.about-card-large p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #334155;
-}
-
-/* Cỡ chữ cho các mục quy ước */
-.status-item span {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-/* Grid Layout thông tin tầm nhìn & quy ước */
+/* ===== 3. GRID TẦM NHÌN & QUY ƯỚC ===== */
 .about-grid-main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
 }
 
 .about-card-large { 
   background: white; 
-  padding: 30px; 
-  border-radius: 20px; 
-  color: #333; 
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.about-card-large:hover {
-  transform: translateY(-5px);
+  padding: 35px; 
+  border-radius: 24px; 
+  color: #1e293b; 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
 }
 
-/* PHẦN TEAM */
+.about-card-large:hover {
+  transform: translateY(-8px);
+}
+
+.about-card-large h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.about-card-large p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* Biểu tượng trong card */
+.card-icon { 
+  font-size: 2.5rem; 
+  margin-bottom: 15px;
+  display: block;
+}
+.card-icon.blue { color: #3b82f6; } 
+.card-icon.yellow { color: #eab308; }
+
+/* ===== 4. PHẦN ĐỘI NGŨ (TEAM) ===== */
 .team-section {
   margin-top: 50px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.15); /* Nền sáng mờ */
-  border-radius: 20px;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
 }
 
 .team-title {
   font-size: 1.75rem;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   text-align: center;
-  color: #ffffff;
+  font-weight: 700;
 }
 
-/* ÉP 2 HÀNG: 3 TRÊN, 2 DƯỚI */
 .team-grid-layout {
   display: flex;
-  flex-wrap: wrap; /* Cho phép xuống dòng */
-  justify-content: center; /* Căn giữa card */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .member-mini-card {
-  /* Ép kích thước để hàng 1 chứa đúng 3 card */
-  flex: 0 0 28%; 
-  min-width: 160px;
+  flex: 0 0 180px; 
   background: white;
-  padding: 20px 10px;
-  border-radius: 16px;
+  padding: 25px 15px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
 .member-mini-card:hover {
   transform: translateY(-5px);
-}
-
-/* ẢNH NHỎ NHƯ LOGO - CỐ ĐỊNH KÍCH THƯỚC */
-.member-logo-wrapper {
-  width: 55px; 
-  height: 55px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #7e7ebe;
-  margin-bottom: 10px;
-}
-
-.member-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* CHỮ TRONG CARD */
-.mini-name {
-  display: block;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: #1e293b;
-  text-align: center;
-}
-
-.mini-role {
-  display: block;
-  font-size: 0.7rem;
-  color: #64748b;
-  margin-top: 4px;
-  text-align: center;
-}
-
-/* ICON VÀ QUY ƯỚC */
-.card-icon { 
-  font-size: 2rem; 
-  margin-bottom: 15px;
-  background: none !important; 
-  display: block;
-}
-
-.card-icon.blue { color: #3b82f6; } 
-.card-icon.yellow { color: #eab308; }
-
-.status-list { margin-top: 15px; }
-.status-item { 
-  display: flex; 
-  align-items: center; 
-  margin-bottom: 12px; 
-  font-size: 0.9rem; 
-  color: #333; 
-}
-
-.dot { 
-  width: 10px; 
-  height: 10px; 
-  border-radius: 50%; 
-  display: inline-block; 
-  margin-right: 10px; 
-}
-.dot.blue { background: #3b82f6; } 
-.dot.red { background: #ef4444; } 
-.dot.green { background: #10b981; }
-
+  box-shadow: 0 15px 30px rgba(

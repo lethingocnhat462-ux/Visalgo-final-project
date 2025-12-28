@@ -87,7 +87,7 @@ const ComplexityCard = ({ algoKey }) => {
         </div>
       </div>
       <p className="algo-desc">
-        <strong>Mô tả:</strong> {info.description}
+        <strong>Description:</strong> {info.description}
       </p>
     </div>
   );
