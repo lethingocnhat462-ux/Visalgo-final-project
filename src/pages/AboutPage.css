@@ -1,15 +1,16 @@
 /* ===== 1. KHUNG CHÍNH (NAVY GRADIENT) ===== */
 .about-wrapper {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 40px auto;
-  padding: 60px 30px;
-  /* Kết hợp Gradient tối sang trọng */
-  background: linear-gradient(145deg, #2b3348 0%, #1a202f 100%);
-  border-radius: 32px;
-  color: white;
+  padding: 60px 40px;
+  /* Tạo điểm sáng trung tâm để không bị tối đen */
+  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%) !important;
+  border-radius: 40px;
+  color: #f1f5f9 !important;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Họa tiết máy tính chìm nghệ thuật */
@@ -34,7 +35,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(#4f46e5 1px, transparent 1px);
+  background-image: radial-gradient(#d8d8e2 1px, transparent 1px);
   background-size: 30px 30px;
   opacity: 0.04;
   z-index: 0;
@@ -59,20 +60,24 @@
   text-transform: uppercase;
 }
 
+/* Tiêu đề chính rực rỡ */
 .about-hero h1 {
-  font-size: 3rem;
-  margin-top: 20px;
-  color: #f8faff;
-  letter-spacing: -1px;
-  font-weight: 800;
+  font-size: 3.5rem !important;
+  text-shadow: 0 0 20px rgba(220, 205, 238, 0.2);
 }
 
 .about-hero p {
-  font-size: 1.25rem;
-  color: #e2e8f0;
-  max-width: 600px;
-  margin: 20px auto 0;
-  line-height: 1.6;
+    font-size: 1.25rem;
+    /* KHÔNG dùng màu đen (#000000), dùng màu trắng bạc sáng */
+    color: #cbd5e1 !important; 
+    max-width: 600px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+    text-align: center;
+    
+    /* Thêm độ bóng nhẹ để tách chữ khỏi nền gradient */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+    opacity: 1 !important; /* Đảm bảo độ đậm đặc 100% */
 }
 
 /* ===== 3. GRID TẦM NHÌN & QUY ƯỚC ===== */
@@ -97,12 +102,39 @@
 .about-card-large:hover {
   transform: translateY(-8px);
 }
+.about-card-large, .member-mini-card {
+  /* Tăng độ sáng nền card từ 0.03 lên 0.08 */
+  background: rgba(243, 236, 236, 0.08) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Viền trắng sáng rõ hơn */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+              inset 0 1px 1px rgba(255, 255, 255, 0.1); /* Tạo hiệu ứng ánh sáng mép card */
+  color: #ffffff !important;
+}
 
+.member-mini-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #6366f1;
+    background: rgba(99, 102, 241, 0.05); /* Ánh xanh nhẹ khi hover */
+}
+
+/* Chữ Gradient cho Title sang trọng */
+.hero-title, .team-title, .about-hero h1 {
+    /* Thay vì transparent, hãy dùng màu trắng hoặc gradient rõ ràng */
+    color: #ffffff !important; 
+    -webkit-text-fill-color: #ffffff !important; /* Quan trọng: Ghi đè lại lỗi chìm chữ */
+    
+    font-size: 3.5rem !important;
+    font-weight: 800;
+    text-align: center;
+    
+    /* Thêm hiệu ứng phát sáng để chữ nổi hẳn lên khỏi nền */
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.4), 0 0 30px rgba(99, 102, 241, 0.3) !important;
+    margin-bottom: 10px;
+}
 .about-card-large h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-  color: #0f172a;
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .about-card-large p {
@@ -124,7 +156,7 @@
 .team-section {
   margin-top: 50px;
   padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 253, 253, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -140,77 +172,129 @@
 }
 
 .team-grid-layout {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 thẻ mỗi hàng */
+  display: flex !important; /* Đổi từ grid sang flex */
+  flex-wrap: wrap !important; /* Cho phép xuống hàng */
+  justify-content: center !important; /* CĂN GIỮA TOÀN BỘ HÀNG */
   gap: 30px;
-  max-width: 1050px;
+  max-width: 1200px;
   margin: 0 auto;
- 
 }
 
 .team-row-center {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+    display: flex !important;
+    flex-direction: row !important; /* Buộc nằm ngang */
+    justify-content: center !important; /* Căn giữa các Card */
+    align-items: stretch !important;    /* Cho các Card cao bằng nhau */
+    gap: 30px; /* Khoảng cách giữa các Card */
+    width: 100%;
+    flex-wrap: wrap; /* Tự xuống dòng trên mobile */
+    margin-top: 20px;
+}
+/* Chỉnh lại màu mô tả (Description) để không bị chìm */
+.about-card-large p, .mini-role {
+    color: #cbd5e1 !important; /* Đổi từ #000000 sang màu sáng này */
+    line-height: 1.6;
 }
 
+.status-item {
+  color: #f1f5f9 !important; /* Màu trắng xám sáng */
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
 
+/* Thêm hiệu ứng tỏa sáng (Glow) cho các dấu chấm để tăng tính công nghệ */
+.dot.blue { background: #3b82f6; box-shadow: 0 0 12px rgba(59, 130, 246, 0.8); }
+.dot.red { background: #d42424; box-shadow: 0 0 12px rgba(245, 186, 49, 0.8); }
+.dot.green { background: #10b981; box-shadow: 0 0 12px rgba(16, 185, 129, 0.8); }
 
-
+/* 1. KHUNG CHỨA (CARD) - SỬA LỖI MÉO VÀ LỆCH */
+/* Thẻ Card của từng thành viên */
 .member-mini-card {
-  background: #ffffff;
-  padding: 35px 20px;
-  border-radius: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 30px !important;
+    
+    /* ĐẢM BẢO KHÔNG VƯỢT KHUNG */
+    flex: 0 1 280px;         /* Không giãn quá 280px, nhưng có thể co lại */
+    min-width: 250px;        /* Độ rộng tối thiểu để không quá bé */
+    box-sizing: border-box;  /* Tính cả padding vào độ rộng */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px !important;
+    transition: all 0.3s ease;
 }
-.team-row-center .member-mini-card {
-  flex: 1;
-  max-width: 280px;
-}
-
 
 .member-mini-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2); /* Đã thêm màu và đóng ngoặc ) */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(167, 139, 250, 0.3) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
 }
+
+/* 2. AVATAR - GIỮ HÌNH TRÒN VÀ CHÍNH GIỮA */
 .member-logo-wrapper {
-  width: 60px; 
-  height: 60px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #3b82f6;
-  margin-bottom: 12px;
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important; 
+    overflow: hidden;
+    border: 3px solid #6366f1 !important;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    margin: 0 auto 20px auto !important; /* Force căn giữa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .member-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+/* 3. TÊN (NAME) - SỬA LỖI BỊ CHÌM VÀ LỆCH */
 .mini-name {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #1e293b;
-  display: block;
-  margin-bottom: 5px;
-  text-align: center;
+    /* Đổi từ đen sang trắng để nổi trên nền tím */
+    color: #ffffff !important; 
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 5px 0 !important;
+    width: 100% !important;
+    display: block !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3) !important;
 }
 
+/* 4. VAI TRÒ (ROLE) - THẲNG HÀNG VỚI TÊN */
 .mini-role {
-  font-size: 0.75rem;
-  color: #64748b;
-  margin-top: 4px;
-  font-weight: 500;
-  display: block; /* Ép vai trò xuống dòng dưới tên */
-  text-align: center;
+    /* Đổi từ đen sang xám bạc sáng */
+    color: #cbd5e1 !important; 
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    letter-spacing: 0.5px;
 }
 
+/* Container bọc ngoài cùng để 3-5 card nằm hàng ngang */
+.team-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Giúp các card có chiều cao bằng nhau */
+    gap: 25px;
+    flex-wrap: wrap; /* Tự xuống dòng trên mobile */
+    width: 100%;
+    margin-top: 40px;
+}
+/* Ép tất cả tiêu đề trong card phải là trắng tinh */
+.about-card-large h2, .mini-name {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
 /* ===== 5. TRẠNG THÁI (STATUS/DOTS) ===== */
 .status-item { 
   display: flex; 

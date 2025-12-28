@@ -1,85 +1,208 @@
 /* ===== 1. TỔNG THỂ NỀN TỐI (DEEP NAVY) ===== */
-.algo-page-container {
-  max-width: 100% !important;
-  margin: 0;
-  padding: 100px 20px;
-  font-family: 'Inter', sans-serif;
-  /* Màu nền tối sâu chuyên nghiệp */
-  background-color: #1a1a38; 
-  color: #ffffff;
-  min-height: 100vh;
+
+html, body, #root, .App {
+    background-color: #b4a4fd !important; /* Nền tối sâu làm gốc */
+    margin: 0;
+    padding: 0;
+}
+
+.algorithm-page-container {
+    /* Gradient tím AI rực rỡ hơn */
+    background: linear-gradient(135deg, #1a103d 0%, #0f0821 100%) !important;
+    background-attachment: fixed !important;
+    min-height: 100vh !important;
+    width: 100% !important;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+/* Họa tiết chấm bi (Grid Dots) */
+
+.algorithm-page-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(167, 139, 250, 0.2) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.algorithm-page-container::after {
+
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+
 }
 
 /* ===== 2. PHẦN TIÊU ĐỀ ===== */
+
 .algo-header-section {
+
   text-align: center;
+
   margin-bottom: 60px;
+
   max-width: 1200px;
+
   margin-left: auto;
+
   margin-right: auto;
+
 }
 
+/* ===== CHỈNH SỬA BADGE "ALGORITHMS" PHÍA TRÊN ===== */
 .algo-badge {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  /* 1. Bo góc dạng viên thuốc (Pill shape) */
+  border-radius: 100px !important;
+  
+  /* 2. Viền: Tăng độ dày và sử dụng màu trắng bạc để không bị chìm */
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  
+  /* 3. Nền: Tím đậm hơn một chút để tạo độ tương phản với chữ trắng */
+  background: rgba(139, 92, 246, 0.3) !important;
+  
+  /* 4. Màu chữ: Trắng tinh khiết */
+  color: #ffffff !important;
+  
+  /* 5. Hiệu ứng Glow (Phát sáng) cho viền: 
+     Đây là chìa khóa để viền không bị chìm */
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.5) !important;
+  
+  /* Định dạng chữ sang trọng */
+  padding: 8px 24px !important;
+  font-size: 0.8rem !important;
+  font-weight: 850 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  display: inline-flex;
+  margin-bottom: 25px !important;
+  backdrop-filter: blur(5px); /* Hiệu ứng kính nhẹ bên trong badge */
 }
+
+/* Hiệu ứng hover cho Badge thêm sinh động */
+.algo-badge:hover {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.8) !important;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
 
 .algo-page-title {
-  font-size: 3.5rem;
-  font-weight: 900;
-  margin: 25px 0;
-  /* Tạo dải màu gradient cho chữ cực đẹp */
-  background: linear-gradient(to right, #ffffff, #60a5fa, #2563eb);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.4));
+
+  position: relative;
+
+  z-index: 1;
+
+  font-size: 4rem !important;
+
+  font-weight: 900 !important;
+
+  text-align: center;
+
+  /* Màu xanh Navy đậm để tương phản cực cao với nền sáng */
+
+  color: #1e293b !important;
+
+  -webkit-text-fill-color: initial !important; /* Hủy bỏ trong suốt cũ */
+
+  background: none !important;
+
+ 
+
+  /* Tạo chiều sâu bằng bóng đổ kép */
+
+  text-shadow: 1px 1px 0px #ffffff, 4px 4px 12px rgba(0, 0, 0, 0.1);
+
+  margin-top: 20px;
+
 }
 
+
+
 .algo-page-subtitle {
-  color: #94a3b8;
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
+
+  position: relative;
+
+  z-index: 1;
+
+  color: #475569 !important; /* Màu xám đậm hơn để không bị nhạt */
+
+  font-weight: 600;
+
+  font-size: 1.15rem;
+
+  text-align: center;
+
+  margin-bottom: 50px;
+
 }
 
 /* ===== 3. GRID LAYOUT & CARD KÍNH (GLASSMORPHISM) ===== */
+
 .algo-card-grid {
+
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
   gap: 30px;
+
   max-width: 1200px;
+
   margin: 60px auto 0;
+
 }
 
+
+
 .algo-glass-card {
-  background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  padding: 40px 30px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
+    /* Đổi từ màu xám đục sang nền trắng trong suốt rất nhẹ */
+    background: rgb(255, 255, 255) !important;
+    
+    /* Hiệu ứng làm mờ hậu cảnh (Glassmorphism) - Quan trọng để nổi bật */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    
+    /* Viền trắng mờ tạo cảm giác sắc nét */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 40px !important;
+    
+    padding: 60px 40px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* Đổ bóng cực sâu để tạo độ nổi khối 3D */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .algo-glass-card:hover {
-  transform: translateY(-12px);
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+
+  transform: translateY(-10px);
+  box-shadow: 0 35px 70px rgba(99, 102, 241, 0.12);
+  border-color: #6366f1 !important;
+
 }
 
 .algo-card-icon {
+
   font-size: 2rem;
   color: #ffffff !important;
   margin-bottom: 25px;
@@ -93,24 +216,103 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
   transition: all 0.3s ease;
+
 }
 
+
+
 .algo-glass-card h3 {
-  font-size: 1.6rem;
-  color: #ffffff;
-  margin-bottom: 12px;
-  font-weight: 700;
+
+  font-size: 1.75rem !important;
+  color: #1e293b !important;
+  font-weight: 850 !important;
+  margin-bottom: 15px;
+  text-align: center;
+
 }
 
 .algo-glass-card p {
-  color: #d5e7ff;
-  line-height: 1.7;
-  flex-grow: 1;
-  margin-bottom: 25px;
+
+  color: #334155 !important; /* Màu Slate 700 */
+  font-weight: 500 !important;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 1 !important;
+
+}
+
+/* Tiêu đề chính "Select Algorithm" rực rỡ hơn */
+
+.select-algo-title {
+
+    color: #1e40af !important; /* Xanh đậm hơn (Blue 800) */
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+
+}
+
+/* Các đoạn mô tả trong thẻ Card (đang bị quá nhạt) */
+
+.algo-card p {
+
+    color: #334155 !important; /* Đổi từ xám nhạt sang Slate 700 để dễ đọc */
+    font-weight: 500;
+    line-height: 1.6;
+
+}
+
+/* Chữ trên nút Get Started */
+
+.btn-get-started {
+
+    color: #1d4ed8 !important; /* Xanh đậm */
+    font-weight: 700 !important;
+
+}
+
+/* Khung chứa toàn bộ trang thuật toán */
+
+.algo-visualization-container {
+
+    background-color: #f8fafc;
+    background-image:
+
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
+
+    position: relative;
+
+}
+
+/* Họa tiết lưới chấm (Dotted Grid) */
+
+.algo-visualization-container::before {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 25px 25px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.nav-link {
+    color: #475569 !important; /* Xám đậm chuyên nghiệp */
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+
+    color: #4f46e5 !important; /* Xanh tím khi chọn */
+
 }
 
 /* ===== 4. NÚT XEM TRỰC QUAN (NEON LINK) ===== */
+
 .algo-view-btn {
+
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -127,9 +329,11 @@
   transition: all 0.3s ease;
   cursor: pointer;
   width: fit-content;
+
 }
 
 .algo-view-btn:hover {
+
   background: #3b82f6 !important;
   color: #ffffff !important;
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
@@ -138,9 +342,12 @@
 
 .algo-view-btn span {
   font-size: 1.2rem;
+
   transition: transform 0.3s ease;
 }
 
 .algo-view-btn:hover span {
+
   transform: translateX(5px);
+
 }
