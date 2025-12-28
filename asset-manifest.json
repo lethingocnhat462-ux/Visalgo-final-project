@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/Visalgo-final-project/static/css/main.04455c05.css",
-    "main.js": "/Visalgo-final-project/static/js/main.8eaf0686.js",
+    "main.css": "/Visalgo-final-project/static/css/main.f8efe0af.css",
+    "main.js": "/Visalgo-final-project/static/js/main.b95f49a8.js",
     "static/js/453.2f83454f.chunk.js": "/Visalgo-final-project/static/js/453.2f83454f.chunk.js",
+    "static/media/nhat.jpg": "/Visalgo-final-project/static/media/nhat.f18180c266032790cfbc.jpg",
+    "static/media/quynh.jpg": "/Visalgo-final-project/static/media/quynh.b518e9f2f593a0ca59aa.jpg",
+    "static/media/dieu.jpg": "/Visalgo-final-project/static/media/dieu.cdeaa5733349877f2fd1.jpg",
+    "static/media/phuong.jpg": "/Visalgo-final-project/static/media/phuong.495981f8bc8f01741b46.jpg",
+    "static/media/thuan.jpg": "/Visalgo-final-project/static/media/thuan.e031b05843266f17352b.jpg",
     "static/media/logo.png": "/Visalgo-final-project/static/media/logo.785a499f1efc59378321.png",
     "index.html": "/Visalgo-final-project/index.html",
-    "main.04455c05.css.map": "/Visalgo-final-project/static/css/main.04455c05.css.map",
-    "main.8eaf0686.js.map": "/Visalgo-final-project/static/js/main.8eaf0686.js.map",
+    "main.f8efe0af.css.map": "/Visalgo-final-project/static/css/main.f8efe0af.css.map",
+    "main.b95f49a8.js.map": "/Visalgo-final-project/static/js/main.b95f49a8.js.map",
     "453.2f83454f.chunk.js.map": "/Visalgo-final-project/static/js/453.2f83454f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04455c05.css",
-    "static/js/main.8eaf0686.js"
+    "static/css/main.f8efe0af.css",
+    "static/js/main.b95f49a8.js"
   ]
 }
