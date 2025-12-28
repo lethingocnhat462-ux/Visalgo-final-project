@@ -1,6 +1,6 @@
 /* Áp dụng cho toàn bộ trang web */
 body, html, #root {
-  background-color: #404083 !important; /* Màu tím sẫm bạn đã chọn cho trang chủ */
+  background-color: #ffffff !important; /* Màu tím sẫm bạn đã chọn cho trang chủ */
   margin: 0;
   padding: 0;
   color: white;

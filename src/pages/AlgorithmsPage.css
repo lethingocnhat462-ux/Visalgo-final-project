@@ -1,7 +1,7 @@
 /* ===== 1. TỔNG THỂ NỀN TỐI (DEEP NAVY) ===== */
 
 html, body, #root, .App {
-    background-color: #b4a4fd !important; /* Nền tối sâu làm gốc */
+    background-color: #e5e6f0 !important; /* Nền tối sâu làm gốc */
     margin: 0;
     padding: 0;
 }

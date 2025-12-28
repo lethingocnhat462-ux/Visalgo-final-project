@@ -4,7 +4,7 @@
   margin: 40px auto;
   padding: 60px 40px;
   /* Tạo điểm sáng trung tâm để không bị tối đen */
-  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 100%) !important;
+  background: radial-gradient(circle at 50% 0%, #596c8c 0%, #6476a1 100%) !important;
   border-radius: 40px;
   color: #f1f5f9 !important;
   position: relative;
@@ -210,7 +210,7 @@
 /* 1. KHUNG CHỨA (CARD) - SỬA LỖI MÉO VÀ LỆCH */
 /* Thẻ Card của từng thành viên */
 .member-mini-card {
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(234, 225, 225, 0.1) !important;
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 30px !important;
