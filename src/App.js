@@ -16,7 +16,7 @@ import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
-     <Router>
+     
       <div className="app-container">
         <Header />
         <main style={{ padding: '20px' }}>
@@ -28,7 +28,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </Router>
+    
   );
 }
 export default App;

@@ -4,9 +4,7 @@ import { bubbleSortSteps } from '../algorithms/bubbleSort';
 import { insertionSortSteps } from '../algorithms/insertionSort';
 import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line
-const { t } = useTranslation();
-
-const RaceMode = ({ inputArray }) => {
+const RaceMode = ({ inputArray =""}) => {const { t } = useTranslation();
   // State cho thuật toán bên trái và bên phải
   const [algo1, setAlgo1] = useState('bubble');
   const [algo2, setAlgo2] = useState('insertion');
