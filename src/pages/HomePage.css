@@ -1,123 +1,230 @@
-/* ===== 1. TỔNG THỂ NỀN NAVY SÂU ===== */
+/* ===== 1. TỔNG THỂ NỀN VŨ TRỤ (DARK SPACE) ===== */
 .home {
   font-family: 'Inter', sans-serif;
-  background-color: #506390; /* Deep Navy chuyên nghiệp */
+  /* Nền tối sâu với hiệu ứng gradient huyền ảo */
+  background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #09050f 100%);
   color: #ffffff;
   overflow-x: hidden;
   min-height: 100vh;
-}
-
-/* ===== 2. HERO SECTION VỚI HIỆU ỨNG CÔNG NGHỆ ===== */
-.hero {
-  background: radial-gradient(circle at 50% 50%, rgba(164, 165, 234, 0.15) 0%, transparent 50%),
-              linear-gradient(180deg, #a1b5d7 0%, #50638f 100%);
-  padding: 120px 20px 200px;
-  text-align: center;
   position: relative;
 }
 
-/* Lưới tọa độ chìm tạo cảm giác không gian 3D */
+/* ===== 2. HIỆU ỨNG CÁC HÀNH TINH TÍM (DECORATION) ===== */
+/* Thêm các hình tròn mờ ảo ở các góc như trong ảnh */
+.home::before, .home::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.home::before {
+  width: 400px;
+  height: 400px;
+  background: #6d28d9;
+  top: -100px;
+  left: -150px;
+}
+
+.home::after {
+  width: 500px;
+  height: 500px;
+  background: #4c1d95;
+  bottom: -100px;
+  right: -100px;
+}
+/* Container chính của trang chủ */
+.home {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #09050f 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  /* Quan trọng: Chỉ để overflow ở lớp cha ngoài cùng */
+  overflow: hidden !important; 
+}
+.home::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 700px;
+  height: 700px;
+  /* Màu tím Indigo rực rỡ */
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatingAI 30s ease-in-out infinite alternate;
+}
+
+.home::after {
+  content: '';
+  position: absolute;
+  bottom: -5%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  /* Màu tím Purple huyền ảo */
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatingAI 25s ease-in-out infinite alternate-reverse;
+}
+/* ===== 1. TỔNG THỂ NỀN VŨ TRỤ (XÓA BỎ THANH TRƯỢT) ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* Chống cuộn ngang tuyệt đối */
+  overflow-x: hidden !important; 
+}
+/* ===== 3. HERO SECTION & GRID LAYOUT ===== */
+.hero {
+  padding: 80px 20px 100px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Lưới tọa độ chìm (Grid) màu trắng mờ */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  pointer-events: none;
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1000px;
+/* Hiệu ứng ánh sao lấp lánh (Stars) */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px; /* Mật độ sao */
+  opacity: 0.3;
+}
+
+/* ===== 4. KHỐI INTRO (KHUNG XANH NEON) ===== */
+.intro-top {
+  background: rgba(255, 255, 255, 0.03); /* Nền cực trong suốt */
+  backdrop-filter: blur(10px);
+  
+  /* Viền xanh Neon phát sáng (Cyan Glow) */
+  border: 2px solid #22d3ee;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4), inset 0 0 15px rgba(34, 211, 238, 0.1);
+  
+  padding: 50px;
+  border-radius: 40px; /* Bo góc lớn hơn giống ảnh */
+  max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 10;
-  gap: 20px;
 }
 
-/* ===== 3. KHỐI INTRO (GLASSMORPHISM) ===== */
-.intro-top {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  padding: 40px;
-  border-radius: 35px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  max-width: 750px;
-  margin: 0 auto;
-}
-
+/* Badge "ABOUT PROJECT" phía trên tiêu đề */
 .intro-badge {
-  font-size: 1.1rem;
-  font-weight: 700;
-  padding: 8px 24px;
-  display: inline-block;
-  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 6px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #a5b4fc;
+  border-radius: 20px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  background: rgba(59, 130, 246, 0.15);
-  color: #2d425a;
-  border: 1px solid rgba(59, 130, 246, 0.4);
-  margin-bottom: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  display: inline-block;
 }
 
-/* Tiêu đề chính khổng lồ - Gradient Xanh Neon */
+.intro-top h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.intro-top p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+/* ===== 5. TIÊU ĐỀ CHÍNH (VISUALIZE SORTING ALGORITHMS) ===== */
 .hero-title {
-  font-size: 5.5rem !important;
+  font-size: 5rem !important;
   font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -0.05em;
-  margin: 20px auto !important;
-  background: linear-gradient(to bottom, #ffffff 30%, #60a5fa 100%);
-  -webkit-background-clip: text;
-  background-clip: text; 
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 15px rgba(96, 165, 250, 0.5));
+  margin-top: 60px !important;
+  margin-bottom: 20px !important;
+  color: #ffffff;
+  text-transform: capitalize;
+  /* Hiệu ứng bóng đổ chữ nhẹ nhàng */
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
 }
 
 .hero-p {
-  font-size: 1.25rem !important;
-  color: #b4d2ff !important;
-  max-width: 800px;
-  margin: 0 auto 30px !important;
+  font-size: 1.4rem !important;
+  color: #94a3b8 !important; /* Màu xám xanh nhẹ */
+  font-weight: 400;
+  margin-bottom: 40px !important;
 }
 
-/* ===== 4. DIVIDER PHÁT SÁNG (GLOW) ===== */
-.ui-divider {
-  display: flex;
+/* ===== 6. NÚT CTA (SỬA LỖI KHÔNG CLICK ĐƯỢC) ===== */
+.cta-btn {
+  /* Hiển thị */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  width: 100%;
-  max-width: 400px;
-  margin: 30px auto;
+  gap: 12px;
+  
+  /* Màu sắc & Nền */
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: #ffffff !important;
+  text-decoration: none !important; /* Đảm bảo không có gạch chân */
+  
+  /* Kích thước & Bo góc */
+  padding: 16px 45px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  
+  /* Quan trọng: Đưa lên lớp trên cùng để có thể ấn được */
+  position: relative;
+  z-index: 999; 
+  cursor: pointer;
+  
+  /* Hiệu ứng */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 40px !important;
 }
 
-.ui-divider .line {
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(168, 85, 247, 0.5);
+  filter: brightness(1.1);
 }
 
-.ui-divider .dot {
-  width: 8px;
-  height: 8px;
-  background: #3b82f6;
-  border-radius: 50%;
-  box-shadow: 0 0 15px #3b82f6;
+.cta-btn:active {
+  transform: translateY(0);
 }
-
-/* ===== 5. CÁC THẺ TÍNH NĂNG (TRẮNG NỔI BẬT) ===== */
+/* ===== 5. CÁC THẺ TÍNH NĂNG (STYLE MỚI CHO NỀN TỐI) ===== */
 .features {
   display: flex;
   justify-content: center;
   gap: 30px;
   max-width: 1200px;
-  margin: -100px auto 100px; /* Đè lên phần Hero */
+  margin: 20px auto 50px; /* Bỏ margin âm để không bị đè khuất */
   padding: 0 20px;
   position: relative;
   z-index: 20;
@@ -125,54 +232,52 @@
 }
 
 .feature-card {
-  background: #ffffff !important;
-  color: #1e293b !important;
-  padding: 50px 35px;
-  border-radius: 35px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  /* Thay đổi từ nền trắng sang nền tối trong suốt (Glassmorphism) */
+  background: rgba(255, 255, 255, 0.05) !important; 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Chữ chuyển sang màu trắng */
+  color: #ffffff !important;
+  
+  padding: 40px 30px;
+  border-radius: 24px;
+  
+  /* Viền mỏng để định hình khối trên nền tối */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
   flex: 1;
   min-width: 280px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  text-align: center;
+  transition: all 0.4s ease;
+  text-align: left; /* Căn lề trái giống trong ảnh mới bạn gửi */
 }
 
 .feature-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 30px 60px rgba(59, 130, 246, 0.2);
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(34, 211, 238, 0.5); /* Sáng lên màu Cyan khi hover */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Tùy chỉnh Icon */
 .feature-card svg {
-  color: #3b82f6 !important;
-  font-size: 3rem;
+  color: #ffffff !important; /* Icon màu trắng */
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
 
+/* Tiêu đề trong thẻ (Easy to Understand, Visual, Friendly) */
 .feature-card h3 {
   font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-/* ===== 6. NÚT CTA BẮT ĐẦU NGAY ===== */
-.cta-btn {
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  color: #ffffff !important;
-  padding: 16px 45px;
-  border-radius: 999px;
-  font-size: 1.1rem;
   font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 40px !important;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-  transition: all 0.4s ease;
+  margin-bottom: 10px;
+  color: #ffffff !important;
 }
 
-.cta-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
-  letter-spacing: 1px;
+/* Nội dung mô tả dưới tiêu đề */
+.feature-card p {
+  color: #cbd5e1 !important; /* Màu xám sáng để dễ đọc */
+  font-size: 1rem;
+  line-height: 1.5;
 }

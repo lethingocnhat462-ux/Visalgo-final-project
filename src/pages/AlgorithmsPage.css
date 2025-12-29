@@ -6,6 +6,7 @@ html, body, #root, .App {
     padding: 0;
 }
 
+
 .algorithm-page-container {
     /* Gradient tím AI rực rỡ hơn */
     background: linear-gradient(135deg, #1a103d 0%, #0f0821 100%) !important;

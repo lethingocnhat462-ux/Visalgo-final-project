@@ -3,13 +3,13 @@ import Visualizer from '../components/Visualizer'; // Sử dụng lại Componen
 import { bubbleSortSteps } from '../algorithms/bubbleSort';
 import { insertionSortSteps } from '../algorithms/insertionSort';
 import { useTranslation } from 'react-i18next';
-
+// eslint-disable-next-line
+const { t } = useTranslation();
 
 const RaceMode = ({ inputArray }) => {
   // State cho thuật toán bên trái và bên phải
   const [algo1, setAlgo1] = useState('bubble');
   const [algo2, setAlgo2] = useState('insertion');
-  
   // State chứa các bước chạy riêng biệt
   const [steps1, setSteps1] = useState([]);
   const [steps2, setSteps2] = useState([]);
