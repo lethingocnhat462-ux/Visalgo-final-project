@@ -83,6 +83,7 @@ i18n
           "status_finished": "Finished: Done",
           "our_team_title": "Our Team",
 
+          "nav_sandbox": "Sandbox",
           "sandbox_title": "Algorithm Sandbox",
       "sandbox_subtitle": "Write your code - Visualize the result",
       "editor_label": "Code Editor (JavaScript)",
@@ -162,6 +163,7 @@ i18n
           "status_finished": "Hoàn thành: Xong",
           "our_team_title": "Đội ngũ của chúng tôi",
 
+          "nav_sandbox": "Sân chơi",
           "sandbox_title": "Môi trường thực hành thuật toán",
       "sandbox_subtitle": "Tự tay viết mã - Trực quan kết quả",
       "editor_label": "Trình soạn thảo (JavaScript)",
