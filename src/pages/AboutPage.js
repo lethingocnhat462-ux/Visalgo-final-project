@@ -13,7 +13,6 @@ import imgthuan from '../assets/thuan.jpg';
 const AboutPage = () => {
   const { t } = useTranslation();
 
-  // Đưa vào trong để mỗi lần ngôn ngữ thay đổi, t() sẽ được gọi lại với key tương ứng
   const teamMembers = [
     { n: "Ngọc Nhất", r: t('role_leader'), img: imgnhat },
     { n: "Như Quỳnh", r: t('role_ui'), img: imgquynh },
@@ -24,9 +23,6 @@ const AboutPage = () => {
 
   return (
     <div className="about-wrapper">
-      <div className="glow-circle blue-glow"></div>
-      <div className="glow-circle purple-glow"></div>
-
       <section className="about-hero">
         <span className="about-label">{t('about_label')}</span>
         <h1>{t('about_hero_title')}</h1>
@@ -60,8 +56,7 @@ const AboutPage = () => {
       <section className="team-section">
         <h2 className="team-title"><FaUserTie /> {t('our_team_title')} </h2>
         <div className="team-grid-layout">
-          {/* 3 CARD HÀNG TRÊN */}
-          {teamMembers.slice(0, 3).map((m, i) => (
+          {teamMembers.map((m, i) => (
             <div key={i} className="member-mini-card">
               <div className="member-logo-wrapper">
                 <img src={m.img} alt={m.n} className="member-logo-img" />
@@ -72,21 +67,6 @@ const AboutPage = () => {
               </div>
             </div>
           ))}
-
-          {/* 2 CARD HÀNG DƯỚI */}
-          <div className="team-row-center">
-            {teamMembers.slice(3).map((m, i) => (
-              <div key={i} className="member-mini-card">
-                <div className="member-logo-wrapper">
-                  <img src={m.img} alt={m.n} className="member-logo-img" />
-                </div>
-                <div className="member-mini-info">
-                  <span className="mini-name">{m.n}</span>
-                  <span className="mini-role">{m.r}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </div>

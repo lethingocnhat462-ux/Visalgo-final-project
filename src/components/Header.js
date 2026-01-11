@@ -21,6 +21,7 @@ const Header = () => {
       <nav className="nav-container">
         <ul className="nav-links">
           <li><NavLink to="/" end>{t('nav_home')}</NavLink></li>
+          
           <li className="dropdown">
             <span className="dropbtn">{t('nav_algo')} ▼</span>
             <div className="dropdown-menu">
@@ -29,9 +30,16 @@ const Header = () => {
               <NavLink to="/algorithms/merge">{t('merge_sort')}</NavLink>
             </div>
           </li>
+
+          {/* MỚI: Thêm link dẫn đến trang Sandbox */}
+          <li>
+            <NavLink to="/sandbox" className="sandbox-link">
+              Sandbox 
+            </NavLink>
+          </li>
+
           <li><NavLink to="/about">{t('nav_team')}</NavLink></li>
           
-          {/* Nút chuyển ngôn ngữ nằm gọn bên phải cùng hàng với Menu */}
           <div className="lang-switcher">
             <button 
               className={i18n.language === 'vi' ? 'active' : ''} 

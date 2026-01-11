@@ -5,8 +5,9 @@
   align-items: center;
   padding: 0 6%;
   height: 80px;
-  background: rgba(255, 255, 255, 0.85); /* Nền kính mờ */
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
   position: sticky;
   top: 0;
@@ -14,23 +15,18 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* --- LOGO & CHỮ --- */
 .logo-wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
   transition: transform 0.3s ease;
   cursor: pointer;
-}
-
-.logo-wrapper:hover {
-  transform: scale(1.03);
+  text-decoration: none;
 }
 
 .nav-logo {
-  height: 45px; /* Kích thước logo ảnh vừa vặn */
+  height: 45px;
   width: auto;
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
 }
 
 .logo-text {
@@ -39,29 +35,35 @@
   background: linear-gradient(135deg, #4f46e5, #9333ea);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  letter-spacing: -0.5px;
 }
 
-/* --- HỆ THỐNG MENU --- */
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links {
   display: flex;
-  gap: 35px;
+  gap: 30px;
   list-style: none;
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a, .dropbtn {
   text-decoration: none;
   font-weight: 600;
   color: #475569;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   padding: 8px 0;
   position: relative;
 }
 
-/* Hiệu ứng gạch chân chạy dưới các link */
-.nav-links a::after, .dropbtn::after {
+/* Hiệu ứng gạch chân */
+.nav-links li:not(.dropdown) a:not(.sandbox-link)::after, 
+.dropbtn::after {
   content: '';
   position: absolute;
   width: 0;
@@ -80,31 +82,59 @@
   width: 100%;
 }
 
-/* --- DROPDOWN TÙY CHỈNH --- */
-.dropdown {
+/* NÚT SANDBOX */
+.sandbox-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: #475569;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  padding: 8px 0;
   position: relative;
+  background: none !important; /* Bỏ nền gradient */
+  border: none !important;      /* Bỏ viền */
+  box-shadow: none !important;  /* Bỏ bóng đổ */
+  display: inline-block !important; 
 }
 
-.dropbtn {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+/* Thêm lại hiệu ứng gạch chân giống hệt Home, About */
+.sandbox-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  transition: width 0.3s ease;
 }
 
+/* Hiệu ứng khi hover và khi đang ở trang Sandbox */
+.sandbox-link:hover, 
+.sandbox-link.active {
+  color: #4f46e5 !important;
+  transform: none !important; /* Bỏ hiệu ứng nhấc lên */
+}
+
+.sandbox-link:hover::after, 
+.sandbox-link.active::after {
+  width: 100%;
+}
+/* DROPDOWN */
+.dropdown { position: relative; }
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   background: white;
-  min-width: 180px;
+  min-width: 200px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .dropdown:hover .dropdown-menu {
@@ -118,57 +148,35 @@
   padding: 12px 20px;
   color: #1e293b;
   font-size: 0.9rem;
-  transition: background 0.2s;
 }
-
-.dropdown-menu a::after { display: none; } /* Tắt gạch chân trong menu con */
 
 .dropdown-menu a:hover {
   background: #f1f5f9;
   color: #4f46e5;
 }
-/* Container bên phải chứa menu và nút ngôn ngữ */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
 
-/* Style cho bộ chuyển ngôn ngữ */
+/* NGÔN NGỮ */
 .lang-switcher {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 12px;
+  background: #f1f5f9;
+  padding: 4px 10px;
   border-radius: 20px;
-  border: 1px solid #ddd;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 .lang-switcher button {
   background: none;
   border: none;
-  color: #666;
-  font-weight: 600;
+  color: #64748b;
+  font-weight: 700;
   cursor: pointer;
-  padding: 2px 6px;
-  transition: all 0.3s ease;
-  font-size: 14px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
 }
 
-/* Hiệu ứng khi nút được chọn */
 .lang-switcher button.active {
-  color: #7d5fff; /* Màu tím chủ đạo của bạn */
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.lang-switcher button:hover {
-  color: #7d5fff;
-}
-
-.lang-switcher .divider {
-  color: #ccc;
-  margin: 0 4px;
-  font-size: 12px;
+  color: #4f46e5;
+  background: white;
+  border-radius: 12px;
 }

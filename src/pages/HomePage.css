@@ -2,7 +2,7 @@
 .home {
   font-family: 'Inter', sans-serif;
   /* Nền tối sâu với hiệu ứng gradient huyền ảo */
-  background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #09050f 100%);
+  background: radial-gradient(circle at 50% 50%, #0b112e 0%, #09050f 100%);
   color: #ffffff;
   overflow-x: hidden;
   min-height: 100vh;

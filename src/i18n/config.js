@@ -81,7 +81,16 @@ i18n
           "status_default": "Default: Waiting",
           "status_progress": "In Progress: Comparison and Swapping",
           "status_finished": "Finished: Done",
-          "our_team_title": "Our Team"
+          "our_team_title": "Our Team",
+
+          "sandbox_title": "Algorithm Sandbox",
+      "sandbox_subtitle": "Write your code - Visualize the result",
+      "editor_label": "Code Editor (JavaScript)",
+      "visual_label": "Visualization",
+      "btn_run": "Run Algorithm",
+      "btn_reset": "New Array",
+      "error_syntax": "Syntax Error",
+      "error_return": "Error: Your sort function must return an array!"
         }
       },
       vi: {
@@ -151,7 +160,16 @@ i18n
           "status_default": "Mặc định: Đang chờ",
           "status_progress": "Đang thực hiện: So sánh và Tráo đổi",
           "status_finished": "Hoàn thành: Xong",
-          "our_team_title": "Đội ngũ của chúng tôi"
+          "our_team_title": "Đội ngũ của chúng tôi",
+
+          "sandbox_title": "Môi trường thực hành thuật toán",
+      "sandbox_subtitle": "Tự tay viết mã - Trực quan kết quả",
+      "editor_label": "Trình soạn thảo (JavaScript)",
+      "visual_label": "Trực quan hóa",
+      "btn_run": "Chạy thuật toán",
+      "btn_reset": "Tạo mảng mới",
+      "error_syntax": "Lỗi cú pháp",
+      "error_return": "Lỗi: Hàm sort của bạn phải trả về một mảng!"
         }
       }
     }
