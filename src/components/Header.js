@@ -31,10 +31,10 @@ const Header = () => {
             </div>
           </li>
 
-          {/* MỚI: Thêm link dẫn đến trang Sandbox */}
+          {/* SỬA TẠI ĐÂY: Dùng t('nav_sandbox') thay vì viết chữ Sandbox */}
           <li>
             <NavLink to="/sandbox" className="sandbox-link">
-              Sandbox 
+              {t('nav_sandbox')} 
             </NavLink>
           </li>
 
