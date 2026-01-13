@@ -91,7 +91,12 @@ i18n
       "btn_run": "Run Algorithm",
       "btn_reset": "New Array",
       "error_syntax": "Syntax Error",
-      "error_return": "Error: Your sort function must return an array!"
+      "error_return": "Error: Your sort function must return an array!",
+      "stats_comparisons": "Comparisons",
+          "stats_swaps": "Swaps",
+          "stats_duration": "Execution Time",
+          "speed_delay": "Delay Speed",
+          "running_status": "Running..."
         }
       },
       vi: {
@@ -163,7 +168,7 @@ i18n
           "status_finished": "Hoàn thành: Xong",
           "our_team_title": "Đội ngũ của chúng tôi",
 
-          "nav_sandbox": "Sân chơi",
+          "nav_sandbox": "Thực hành",
           "sandbox_title": "Môi trường thực hành thuật toán",
       "sandbox_subtitle": "Tự tay viết mã - Trực quan kết quả",
       "editor_label": "Trình soạn thảo (JavaScript)",
@@ -171,7 +176,12 @@ i18n
       "btn_run": "Chạy thuật toán",
       "btn_reset": "Tạo mảng mới",
       "error_syntax": "Lỗi cú pháp",
-      "error_return": "Lỗi: Hàm sort của bạn phải trả về một mảng!"
+      "error_return": "Lỗi: Hàm sort của bạn phải trả về một mảng!",
+      "stats_comparisons": "Số phép so sánh",
+          "stats_swaps": "Số phép hoán đổi",
+          "stats_duration": "Thời gian thực thi",
+          "speed_delay": "Độ trễ",
+          "running_status": "Đang chạy..."
         }
       }
     }
